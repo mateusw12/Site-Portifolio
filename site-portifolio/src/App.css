@@ -1,38 +1,86 @@
-.App {
-  text-align: center;
+html,
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.sidebar {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 200px;
+  background-color: #333;
+  color: #fff;
+  overflow-y: auto;
+  transition: all 0.3s;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.sidebar.collapsed {
+  width: 50px;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+ul {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  width: 100%;
 }
 
-.App-link {
-  color: #61dafb;
+.collapse-btn {
+  position: absolute;
+  bottom: 10px;
+  left: 0;
+  width: 50px;
+  height: 50px;
+  color: #FC1503;
+  text-align: center;
+  line-height: 50px;
+  cursor: pointer;
+  transition: all 0.3s;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.collapse-btn:hover {
+  background-color: #444;
+}
+
+.button-color-text {
+  color: #ffffff;
+}
+
+.menu-item-btn:hover {
+  background-color: #FC1503 !important;
+  color: white !important;
+}
+
+.menu-item-btn:hover span {
+  color: white !important;
+}
+
+.menu-item-btn {
+  font-weight: bold !important;
+  text-transform: capitalize;
+  display: flex;
+  justify-content: flex-start;
+  cursor: pointer;
+  background: transparent;
+  outline: none;
+  border: none;
+  padding: 7px 15px;
+  margin: 10px 0px;
+  border-radius: 20px;
+  transition: all 0.3s ease;
+  width: 100%;
+}
+
+@media screen and (max-width: 900px) {
+  .menu-item-btn {
+    margin: 10px;
   }
-  to {
-    transform: rotate(360deg);
-  }
+
 }
