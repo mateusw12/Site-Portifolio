@@ -1,10 +1,11 @@
-html,
 body {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+  background: url('https://images.squarespace-cdn.com/content/v1/5f284723db91c854ab0a260f/1596568250351-45XI71WDKS0586OFT34F/ISC+Abstract+Background+V2+06.png?format=2500w');
+  overflow: hidden;
+  background-size: contain;
+  font-family: sans-serif;
 }
 
+/* SIDE BAR */
 .sidebar {
   position: fixed;
   top: 0;
@@ -32,6 +33,27 @@ ul {
   width: 100%;
 }
 
+.profile-image-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding-top: 10px;
+}
+
+.profile-image {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  border: 2px solid white;
+}
+
+@media screen and (max-width: 900px) {
+  .menu-item-btn {
+    margin: 10px;
+  }
+}
+
+/* BUTTONS SIDE BAR */
 .collapse-btn {
   position: absolute;
   bottom: 10px;
@@ -78,23 +100,30 @@ ul {
   width: 100%;
 }
 
-.profile-image-container {
-  width: 100%;
-  display: flex;
+.header-title {
+  text-align: center;
+}
+
+/* ABOUT  */
+
+.about-container {
+  display: flexbox;
   justify-content: center;
-  padding-top: 10px;
+  align-items: center;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -70%);
+  max-width: 25%;
+  max-height: 90%;
+  background-color: #fffefeb9;
+  opacity: 0.9;
+  border-radius: 10px;
+  color: #000;
+  border-color: #000000;
+  padding: 10px;
 }
 
-.profile-image {
-  width: 120px;
-  height: 120px;
-  border-radius: 50%;
-  border: 2px solid white;
-}
-
-@media screen and (max-width: 900px) {
-  .menu-item-btn {
-    margin: 10px;
-  }
-
+.about-content {
+  text-align: justify;
 }
