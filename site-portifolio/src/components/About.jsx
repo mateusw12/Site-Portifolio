@@ -27,7 +27,8 @@ const About = () => {
         </p>
         <p>
           Sou uma pessoa relativamente tímida, mas fácil de se adaptar a
-          qualquer ambiente de trabalho. Tenho como hobbys jogar video game,
+          qualquer ambiente de trabalho.Gosto de trabalhar em equipe, só
+          proativo, dedicado e organizado. Tenho como hobbys jogar video game,
           estudar sobre tecnologia e praticar esportes, principalmente futebol.
         </p>
         <p>

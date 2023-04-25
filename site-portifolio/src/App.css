@@ -127,3 +127,57 @@ ul {
 .about-content {
   text-align: justify;
 }
+
+/* Skills */
+.wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 70vh;
+}
+
+.skills-container {
+  display: flex;
+  flex-direction: row;
+  max-width: 80%;
+  min-width: 60%;
+  max-height: 80%;
+  background-color: #fffefeb9;
+  opacity: 0.9;
+  border-radius: 10px;
+  color: #000;
+  border-color: #000000;
+  padding: 10px;
+}
+
+.column {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.header-title {
+  font-size: 1.5rem;
+  text-align: center;
+}
+
+.align-toolbar {
+  display: flex;
+  padding-right: 5px;
+}
+
+.skill-content ul {
+  padding-left: 20px;
+}
+
+.skill-content li {
+  margin-bottom: 5px;
+}
+
+.title {
+  padding-left: 5px;
+}
+
+.pointer-item {
+  list-style-type: disc;
+}

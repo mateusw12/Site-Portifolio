@@ -22,6 +22,9 @@ function SideBar({ selectedMenuItem, setSelectedMenuItem }) {
           alt=""
         />
       </div>
+      <div className="social-media">
+        
+      </div>
       <ul>
         {menuItems.map((menuItem) => (
           <button
