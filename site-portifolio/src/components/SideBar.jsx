@@ -3,8 +3,14 @@ import {
   BsFillArrowLeftCircleFill,
   BsFillArrowRightCircleFill,
 } from "react-icons/bs";
-import { menuItems } from "../utils/constants";
+import {
+  FaFacebookSquare,
+  FaGithubSquare,
+  FaInstagramSquare,
+  FaLinkedin,
+} from "react-icons/fa";
 import { Link } from "react-router-dom";
+import { menuItems } from "../utils/constants";
 
 function SideBar({ selectedMenuItem, setSelectedMenuItem }) {
   const [collapsed, setCollapsed] = useState(false);
@@ -23,7 +29,42 @@ function SideBar({ selectedMenuItem, setSelectedMenuItem }) {
         />
       </div>
       <div className="social-media">
-        
+        <a
+          href="https://www.linkedin.com/in/mateus-walz-b40866137/"
+          className="social-media-item"
+          target="_blank"
+          rel="noopener noreferrer"
+          title="Linkedin"
+        >
+          <FaLinkedin className="social-media-link" />
+        </a>
+        <a
+          href="https://github.com/mateusw12"
+          className="social-media-item"
+          target="_blank"
+          rel="noopener noreferrer"
+          title="GitHub"
+        >
+          <FaGithubSquare className="social-media-link" />
+        </a>
+        <a
+          href="https://www.facebook.com/mateus.walz/"
+          className="social-media-item"
+          target="_blank"
+          rel="noopener noreferrer"
+          title="Facebook"
+        >
+          <FaFacebookSquare className="social-media-link" />
+        </a>
+        <a
+          href="https://www.instagram.com/mateus_w12/"
+          className="social-media-item"
+          target="_blank"
+          rel="noopener noreferrer"
+          title="Instagram"
+        >
+          <FaInstagramSquare className="social-media-link" />
+        </a>
       </div>
       <ul>
         {menuItems.map((menuItem) => (
