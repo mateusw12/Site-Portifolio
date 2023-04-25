@@ -47,6 +47,22 @@ ul {
   border: 2px solid white;
 }
 
+.social-media {
+  display: flex;
+  justify-content: center;
+  padding: 10px;
+}
+
+.social-media-link {
+  margin: 0 10px;
+}
+
+.social-media-item {
+  color: red;
+  font-size: 1.5rem;
+  margin-right: 10px;
+}
+
 @media screen and (max-width: 900px) {
   .menu-item-btn {
     margin: 10px;
@@ -61,6 +77,7 @@ ul {
   width: 50px;
   height: 50px;
   color: #FC1503;
+  font-size: 1.5rem;
   text-align: center;
   line-height: 50px;
   cursor: pointer;
@@ -98,6 +115,7 @@ ul {
   border-radius: 20px;
   transition: all 0.3s ease;
   width: 100%;
+  font-size: 1rem;
 }
 
 .header-title {
