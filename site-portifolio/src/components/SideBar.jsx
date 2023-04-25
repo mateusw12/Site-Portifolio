@@ -14,6 +14,13 @@ function SideBar({ selectedMenuItem, setSelectedMenuItem }) {
 
   return (
     <div className={`sidebar ${collapsed ? "collapsed" : ""}`}>
+      <div className="profile-image-container">
+        <img
+          className="profile-image"
+          src="https://avatars.githubusercontent.com/u/38771418?v=4"
+          alt=""
+        />
+      </div>
       <ul>
         {menuItems.map((menuItem) => (
           <button
