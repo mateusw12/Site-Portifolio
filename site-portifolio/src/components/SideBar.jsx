@@ -26,6 +26,7 @@ function SideBar({ selectedMenuItem, setSelectedMenuItem }) {
           className="profile-image"
           src="https://avatars.githubusercontent.com/u/38771418?v=4"
           alt=""
+          title="Mateus Walz"
         />
       </div>
       <div className="social-media">
