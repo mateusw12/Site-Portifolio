@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import { About, Layout } from './components';
+import { About, Layout, Skills } from './components';
 
 import './App.css';
 
@@ -14,6 +14,7 @@ function App() {
         setSelectedMenuItem={setSelectedMenuItem}>
         <Routes>
           <Route exact path="/about" element={<About />} />
+          <Route exact path="/skills" element={<Skills />} />
         </Routes>
       </Layout>
     </BrowserRouter>
