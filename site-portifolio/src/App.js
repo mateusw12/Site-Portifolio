@@ -1,15 +1,21 @@
+import React, { useState } from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { About, Layout } from './components';
+
 import './App.css';
-import { Feed } from './components';
 
 function App() {
+  const [isSidebarCollapsed, setIsSidebarCollapsed] = useState(false);
+  const [selectedMenuItem, setSelectedMenuItem] = useState("/");
+
   return (
     <BrowserRouter>
-      <div>
+      <Layout isSidebarCollapsed={isSidebarCollapsed} selectedMenuItem={selectedMenuItem}
+        setSelectedMenuItem={setSelectedMenuItem}>
         <Routes>
-          <Route exact path='/' element={<Feed />} />
+          <Route exact path="/about" element={<About />} />
         </Routes>
-      </div>
+      </Layout>
     </BrowserRouter>
   );
 }

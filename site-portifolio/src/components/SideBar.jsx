@@ -4,6 +4,7 @@ import {
   BsFillArrowRightCircleFill,
 } from "react-icons/bs";
 import { menuItems } from "../utils/constants";
+import { Link } from "react-router-dom";
 
 function SideBar({ selectedMenuItem, setSelectedMenuItem }) {
   const [collapsed, setCollapsed] = useState(false);
@@ -25,7 +26,7 @@ function SideBar({ selectedMenuItem, setSelectedMenuItem }) {
         {menuItems.map((menuItem) => (
           <button
             className="menu-item-btn"
-            onClick={() => setSelectedMenuItem(menuItem.name)}
+            onClick={() => <Link to={menuItem.link} />}
             style={{
               background: menuItem.name === selectedMenuItem && "#FC1503",
             }}
