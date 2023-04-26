@@ -23,7 +23,7 @@ const ProjectCard = ({ cardImage, cardTitle, repositoryLink, cardContent }) => {
       </Card.Body>
       <Card.Footer>
         <Button variant="primary" onClick={onNavigateClick}>
-          Ver Mais
+          Visitar Reposiório
         </Button>
       </Card.Footer>
     </Card>
