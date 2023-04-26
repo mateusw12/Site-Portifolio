@@ -1,3 +1,4 @@
+import React from 'react';
 import { BsFillBookFill, BsFillFileEarmarkPostFill } from 'react-icons/bs';
 import { SiAboutdotme } from 'react-icons/si';
 
