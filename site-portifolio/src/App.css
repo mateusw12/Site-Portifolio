@@ -173,9 +173,7 @@ ul {
 
 /* Skills */
 .wrapper {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  position: relative;
   height: 70vh;
 }
 
@@ -223,6 +221,15 @@ ul {
 
 .pointer-item {
   list-style-type: disc;
+}
+
+
+@media (max-width: 576px) {
+  .skills-container {
+    max-width: 100%;
+    padding: 5px;
+  }
+
 }
 
 /* Project */
