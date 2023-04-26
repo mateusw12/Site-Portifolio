@@ -1,7 +1,7 @@
 import React from "react";
-
 import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
+import "../styles/Project.css";
 
 const ProjectCard = ({ cardImage, cardTitle, repositoryLink, cardContent }) => {
   function onNavigateClick() {

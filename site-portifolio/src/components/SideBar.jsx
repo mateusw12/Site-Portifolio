@@ -9,6 +9,7 @@ import {
   FaInstagramSquare,
   FaLinkedin,
 } from "react-icons/fa";
+import "../styles/SideBar.css";
 import { menuItems } from "../utils/constants";
 
 const SideBar = ({

@@ -1,9 +1,11 @@
 import React from "react";
 import { ProjectCard } from ".";
+import "../styles/Project.css";
+import "../styles/SideBar.css";
 
 const Project = () => {
   return (
-    <div className="project-content">
+    <div id="project" className="project-content">
       <ProjectCard
         cardTitle={"Padaria"}
         cardContent={
