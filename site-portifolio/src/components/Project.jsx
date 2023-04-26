@@ -19,7 +19,7 @@ const Project = () => {
         }
       ></ProjectCard>
       <ProjectCard
-        cardTitle={"Clima Java Script"}
+        cardTitle={"Clima Js"}
         cardContent={
           "Aplicação que consulta o clima atual da cidade informada, feito puramente em java script."
         }
