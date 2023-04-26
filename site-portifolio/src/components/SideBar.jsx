@@ -15,7 +15,6 @@ import { menuItems } from "../utils/constants";
 
 const SideBar = ({
   selectedMenuItem,
-  setSelectedMenuItem,
   handleSidebarCollapse,
 }) => {
   const [collapsed, setCollapsed] = useState(false);
