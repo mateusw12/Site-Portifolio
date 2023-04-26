@@ -9,6 +9,7 @@ import {
   FaInstagramSquare,
   FaLinkedin,
 } from "react-icons/fa";
+import { Link } from "react-router-dom";
 import "../styles/SideBar.css";
 import { menuItems } from "../utils/constants";
 
@@ -74,20 +75,17 @@ const SideBar = ({
       </div>
       <ul>
         {menuItems.map((menuItem) => (
-          <button
+          <Link
+            to={menuItem.link}
             className="menu-item-btn"
-            onClick={() => {
-              setSelectedMenuItem(menuItem.link);
-              toggleCollapsed();
-            }}
             style={{
-              background: menuItem.link === selectedMenuItem && "#FC1503",
+              background: menuItem.name === selectedMenuItem && "#FC1503",
             }}
             key={menuItem.name}
           >
             <span
               style={{
-                color: menuItem.link === selectedMenuItem ? "white" : "red",
+                color: menuItem.name === selectedMenuItem ? "white" : "red",
                 marginRight: "15px",
               }}
             >
@@ -96,12 +94,12 @@ const SideBar = ({
             <span
               className="button-color-text"
               style={{
-                opacity: menuItem.link === selectedMenuItem ? "1" : "0.8",
+                opacity: menuItem.name === selectedMenuItem ? "1" : "0.8",
               }}
             >
               {menuItem.name}
             </span>
-          </button>
+          </Link>
         ))}
       </ul>
 
