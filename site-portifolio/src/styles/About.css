@@ -1,12 +1,12 @@
 .about-container {
     position: relative;
-    top: 60%;
+    top: 54%;
     left: 50%;
     transform: translate(-50%, -70%);
     max-width: 55%;
     max-height: 70%;
-    background-color: #fffefeb9;
-    opacity: 0.9;
+    background-color: #ffffff;
+    opacity: 0.8;
     border-radius: 20px;
     color: #000;
     border-color: #000000;

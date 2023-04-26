@@ -52,6 +52,13 @@
     border-radius: 10px;
 }
 
+
+.card {
+    opacity: 0.8 ;
+    background-color: #fff;
+}
+
+
 @media (max-width: 575.98px) {
 
     .project-card {
@@ -114,28 +121,20 @@
     }
 }
 
-@media (min-width: 1200px) {
-    .card-text {
-        max-height: 150px;
-        overflow-y: scroll;
-        font-size: 16px;
-    }
-
-    .card {
-        height: calc(100vh - 200px);
-        width: 25vw;
-    }
-}
-
 @media (min-width: 1900px) {
+
+    .project-content {
+        grid-template-columns: repeat(4, 1fr) !important;
+        min-width: calc(100vw - 250px)
+    }
+
     .card-text {
-        max-height: 500px;
-        overflow-y: hidden;
+        overflow-x: hidden;
         font-size: 16px;
+        max-height: 250px;
     }
 
     .card {
-        max-width: calc(70% - 4rem);
-        max-height: calc(100vh - 350px);
+        max-width: 100vw;
     }
 }
