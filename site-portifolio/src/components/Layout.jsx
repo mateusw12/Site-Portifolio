@@ -1,4 +1,3 @@
-import { useMediaQuery } from "@material-ui/core";
 import React, { useEffect, useState } from "react";
 import { Sidebar } from "./index";
 
@@ -6,7 +5,7 @@ const Layout = ({ children }) => {
   const [isSidebarCollapsed, setIsSidebarCollapsed] = useState(false);
   const [isMobileView, setIsMobileView] = useState(false);
 
-  const isMobile = useMediaQuery("(max-width:600px)");
+  const isMobile = window.innerWidth <= 600;
 
   useEffect(() => {
     setIsMobileView(isMobile);
