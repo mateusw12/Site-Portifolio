@@ -13,10 +13,7 @@ import { Link } from "react-router-dom";
 import "../styles/SideBar.css";
 import { menuItems } from "../utils/constants";
 
-const SideBar = ({
-  selectedMenuItem,
-  handleSidebarCollapse,
-}) => {
+const SideBar = ({ selectedMenuItem, handleSidebarCollapse }) => {
   const [collapsed, setCollapsed] = useState(false);
 
   const toggleCollapsed = () => {
@@ -26,14 +23,16 @@ const SideBar = ({
 
   return (
     <div className={`sidebar ${collapsed ? "collapsed" : ""}`}>
-      <div className="profile-image-container">
-        <img
-          className="profile-image"
-          src="https://avatars.githubusercontent.com/u/38771418?v=4"
-          alt=""
-          title="Mateus Walz"
-        />
-      </div>
+      <Link to={'/'}>
+        <div className="profile-image-container">
+          <img
+            className="profile-image"
+            src="https://avatars.githubusercontent.com/u/38771418?v=4"
+            alt=""
+            title="Mateus Walz"
+          />
+        </div>
+      </Link>
       <div className="social-media">
         <a
           href="https://www.linkedin.com/in/mateus-walz-b40866137/"
