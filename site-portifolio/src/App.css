@@ -125,7 +125,7 @@ ul {
 /* ABOUT  */
 
 .about-container {
-  position: absolute;
+  position: relative;
   top: 60%;
   left: 50%;
   transform: translate(-50%, -70%);
@@ -143,6 +143,32 @@ ul {
   text-align: justify;
   overflow-y: hidden;
   max-height: 54vh;
+}
+
+@media (max-width: 768px) {
+  .about-container {
+    max-width: 90%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    padding: 5px;
+  }
+}
+
+/* Media query para telas menores que 576px (celulares em modo retrato) */
+@media (max-width: 576px) {
+  .about-container {
+    max-width: 100%;
+    top: 10%;
+    left: 0%;
+    transform: none;
+    border-radius: 0;
+    padding: 15px;
+  }
+
+  .about-content {
+    overflow-y: scroll;
+    max-height: 48vh;
+  }
 }
 
 /* Skills */
