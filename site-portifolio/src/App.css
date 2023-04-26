@@ -69,6 +69,17 @@ ul {
   }
 }
 
+@media (max-width: 576px) {
+  .social-media {
+    display: grid;
+    grid-template-columns: auto auto;
+    gap: 10px;
+    justify-content: center;
+    padding: 10px;
+  }
+
+}
+
 /* BUTTONS SIDE BAR */
 .collapse-btn {
   position: absolute;
