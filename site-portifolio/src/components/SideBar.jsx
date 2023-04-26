@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import {
   BsFillArrowLeftCircleFill,
   BsFillArrowRightCircleFill,
@@ -9,14 +9,18 @@ import {
   FaInstagramSquare,
   FaLinkedin,
 } from "react-icons/fa";
-import { Link } from "react-router-dom";
 import { menuItems } from "../utils/constants";
 
-function SideBar({ selectedMenuItem, setSelectedMenuItem }) {
+const SideBar = ({
+  selectedMenuItem,
+  setSelectedMenuItem,
+  handleSidebarCollapse,
+}) => {
   const [collapsed, setCollapsed] = useState(false);
 
   const toggleCollapsed = () => {
     setCollapsed(!collapsed);
+    handleSidebarCollapse(!collapsed);
   };
 
   return (
@@ -71,15 +75,18 @@ function SideBar({ selectedMenuItem, setSelectedMenuItem }) {
         {menuItems.map((menuItem) => (
           <button
             className="menu-item-btn"
-            onClick={() => <Link to={menuItem.link} />}
+            onClick={() => {
+              setSelectedMenuItem(menuItem.link);
+              toggleCollapsed();
+            }}
             style={{
-              background: menuItem.name === selectedMenuItem && "#FC1503",
+              background: menuItem.link === selectedMenuItem && "#FC1503",
             }}
             key={menuItem.name}
           >
             <span
               style={{
-                color: menuItem.name === selectedMenuItem ? "white" : "red",
+                color: menuItem.link === selectedMenuItem ? "white" : "red",
                 marginRight: "15px",
               }}
             >
@@ -88,7 +95,7 @@ function SideBar({ selectedMenuItem, setSelectedMenuItem }) {
             <span
               className="button-color-text"
               style={{
-                opacity: menuItem.name === selectedMenuItem ? "1" : "0.8",
+                opacity: menuItem.link === selectedMenuItem ? "1" : "0.8",
               }}
             >
               {menuItem.name}
@@ -99,12 +106,13 @@ function SideBar({ selectedMenuItem, setSelectedMenuItem }) {
 
       <div className="sidebar-footer collapse-btn" onClick={toggleCollapsed}>
         {collapsed ? (
-          <BsFillArrowLeftCircleFill />
-        ) : (
           <BsFillArrowRightCircleFill />
+        ) : (
+          <BsFillArrowLeftCircleFill />
         )}
       </div>
     </div>
   );
-}
+};
+
 export default SideBar;

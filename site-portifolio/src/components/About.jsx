@@ -31,11 +31,6 @@ const About = () => {
           proativo, dedicado e organizado. Tenho como hobbys jogar video game,
           estudar sobre tecnologia e praticar esportes, principalmente futebol.
         </p>
-        <p>
-          Para meu futuro espero me especializar ainda mais em React e Angular,
-          desenvolvendo sites e web apps. Falando sobre futuro acadêmico
-          pretendo realizar uma pós-graduação.
-        </p>
       </div>
     </div>
   );
