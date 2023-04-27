@@ -34,13 +34,9 @@
 /* Media query para telas menores que 576px (celulares em modo retrato) */
 @media (max-width: 576px) {
     .home-container {
-        /* left: -7%;
-        max-width: 100% !important; */
-
         left: -23%;
         top: 18%;
         max-width: 95% !important;
-
     }
 
     .container {
