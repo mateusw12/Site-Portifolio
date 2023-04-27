@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useContext } from "react";
 import {
   BsFillArrowLeftCircleFill,
   BsFillArrowRightCircleFill,
@@ -10,20 +10,21 @@ import {
   FaLinkedin,
 } from "react-icons/fa";
 import { Link } from "react-router-dom";
-import "../styles/SideBar.css";
+import { SidebarContext } from "../context/SidebarContext";
 import { menuItems } from "../utils/constants";
 
-const SideBar = ({ selectedMenuItem, handleSidebarCollapse }) => {
-  const [collapsed, setCollapsed] = useState(false);
+const SideBar = ({ selectedMenuItem }) => {
+  const { collapsed, toggleCollapsed } = useContext(SidebarContext);
 
-  const toggleCollapsed = () => {
-    setCollapsed(!collapsed);
-    handleSidebarCollapse(!collapsed);
+  const handleToggleCollapsed = () => {
+    toggleCollapsed();
   };
 
   return (
-    <div className={`sidebar ${collapsed ? "collapsed" : ""}`}>
-      <Link to={'/'}>
+    <div id="sideBar" className={`sidebar ${collapsed ? "collapsed" : ""}`}>
+      <Link
+        to={{ pathname: "/", state: { isSidebarCollapsed: toggleCollapsed } }}
+      >
         <div className="profile-image-container">
           <img
             className="profile-image"
@@ -74,7 +75,10 @@ const SideBar = ({ selectedMenuItem, handleSidebarCollapse }) => {
       <ul>
         {menuItems.map((menuItem) => (
           <Link
-            to={menuItem.link}
+            to={{
+              pathname: menuItem.link,
+              state: { isSidebarCollapsed: toggleCollapsed },
+            }}
             className="menu-item-btn"
             style={{
               background: menuItem.name === selectedMenuItem && "#FC1503",
@@ -101,7 +105,10 @@ const SideBar = ({ selectedMenuItem, handleSidebarCollapse }) => {
         ))}
       </ul>
 
-      <div className="sidebar-footer collapse-btn" onClick={toggleCollapsed}>
+      <div
+        className="sidebar-footer collapse-btn"
+        onClick={handleToggleCollapsed}
+      >
         {collapsed ? (
           <BsFillArrowRightCircleFill />
         ) : (
