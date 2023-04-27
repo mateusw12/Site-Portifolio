@@ -7,10 +7,10 @@
     max-height: 72%;
     background-color: #ffffff;
     opacity: 0.8;
-    border-radius: 20px;
     color: #000;
     border-color: #000000;
-    padding: 10px;
+    padding: 15px;
+    border-radius: 20px;
 }
 
 .about-content {
@@ -19,29 +19,52 @@
     max-height: 54vh;
 }
 
-@media (max-width: 768px) {
-    .about-container {
-        max-width: 90%;
-        top: 50%;
-        transform: translate(-50%, -50%);
-        padding: 5px;
-    }
+.container-collapsado {
+    top: 54%;
+    left: 50%;
+    transform: translate(-50%, -70%);
+    border-radius: 20px;
+}
+
+.container-about-collapsado {
+    position: relative;
+    top: 54%;
+    left: 50%;
+    transform: translate(-50%, -70%);
+    max-width: 55%;
+    max-height: 72%;
+    background-color: #ffffff;
+    opacity: 0.8;
+    color: #000;
+    border-color: #000000;
+    padding: 15px;
+    border-radius: 20px;
 }
 
 /* Media query para telas menores que 576px (celulares em modo retrato) */
 @media (max-width: 576px) {
-    .about-container {
-        max-width: 100%;
-        top: 10%;
-        left: 0%;
-        transform: none;
-        border-radius: 0;
-        padding: 15px;
-        border-radius: 20px;
-    }
-
     .about-content {
         overflow-y: scroll;
         max-height: 48vh;
+    }
+
+    .container-about-collapsado {
+        min-width: 160% !important;
+        top: 55%;
+        left: 15%;
+        border-radius: 0;
+    }
+
+    .container-collapsado {
+        left: 23% !important;
+        top: 70%;
+        min-width: 47vw;
+        border-radius: 20px;
+    }
+
+    .about-container {
+        left: 27%;
+        width: 90vw;
+        top: 70%;
     }
 }

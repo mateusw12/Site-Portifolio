@@ -1,9 +1,36 @@
-import React from "react";
+import React, { useContext, useEffect } from "react";
+import { SidebarContext } from "../context/SidebarContext";
 import "../styles/About.css";
 
 const About = () => {
+  const { collapsed } = useContext(SidebarContext);
+
+  useEffect(() => {
+    // Aqui você pode usar o estado collapsed conforme necessário
+    const divElement = document.getElementById("about");
+
+    if (!divElement) return;
+    collapsed
+      ? containerAddCssClass(divElement)
+      : containerRemoceCssClass(divElement);
+  }, [collapsed]);
+
+  function containerAddCssClass(divElement) {
+    console.log("adiciono");
+    divElement.classList.add("container-collapsado");
+    divElement.classList.add("container-about-collapsado");
+    divElement.classList.remove("about-container");
+  }
+
+  function containerRemoceCssClass(divElement) {
+    console.log("removo");
+    divElement.classList.remove("container-collapsado");
+    divElement.classList.remove("container-about-collapsado");
+    divElement.classList.add("about-container");
+  }
+
   return (
-    <div className="about-container">
+    <div id="about" className="about-container">
       <div className="header-title">
         <b>Um pouco sobre mim:</b>
       </div>
