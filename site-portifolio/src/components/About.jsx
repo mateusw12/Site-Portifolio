@@ -6,24 +6,21 @@ const About = () => {
   const { collapsed } = useContext(SidebarContext);
 
   useEffect(() => {
-    // Aqui você pode usar o estado collapsed conforme necessário
     const divElement = document.getElementById("about");
 
     if (!divElement) return;
     collapsed
       ? containerAddCssClass(divElement)
-      : containerRemoceCssClass(divElement);
+      : containerRemoveCssClass(divElement);
   }, [collapsed]);
 
   function containerAddCssClass(divElement) {
-    console.log("adiciono");
     divElement.classList.add("container-collapsado");
     divElement.classList.add("container-about-collapsado");
     divElement.classList.remove("about-container");
   }
 
-  function containerRemoceCssClass(divElement) {
-    console.log("removo");
+  function containerRemoveCssClass(divElement) {
     divElement.classList.remove("container-collapsado");
     divElement.classList.remove("container-about-collapsado");
     divElement.classList.add("about-container");
