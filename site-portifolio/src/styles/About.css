@@ -4,7 +4,7 @@
     left: 50%;
     transform: translate(-50%, -70%);
     max-width: 55%;
-    max-height: 72%;
+    max-height: 75%;
     background-color: #ffffff;
     opacity: 0.8;
     color: #000;
@@ -49,7 +49,7 @@
     }
 
     .container-about-collapsado {
-        min-width: 160% !important;
+        min-width: 140% !important;
         top: 55%;
         left: 15%;
         border-radius: 0;
@@ -63,8 +63,8 @@
     }
 
     .about-container {
-        left: 27%;
-        width: 90vw;
+        left: 23%;
+        width: 108vw;;
         top: 70%;
     }
 }
