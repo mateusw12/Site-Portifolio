@@ -6,6 +6,14 @@
     width: 99%;
 }
 
+.wrapper-collapsado {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 70vh;
+    width: 99%;
+}
+
 .skills-container {
     display: flex;
     flex-direction: row;
@@ -58,5 +66,21 @@
         max-width: 100%;
         padding: 5px;
         border-radius: 20px;
+    }
+
+    .wrapper {
+        height: 70vh;
+        width: 110%;
+        left: -9% !important;
+        top: 18%;
+        position: relative;
+    }
+
+    .wrapper-collapsado {
+        height: 70vh;
+        width: 140%;
+        position: relative;
+        left: -40% !important;
+        top: 18%;
     }
 }

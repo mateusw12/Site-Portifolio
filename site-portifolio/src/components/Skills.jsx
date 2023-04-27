@@ -1,9 +1,33 @@
-import React from "react";
+import React, { useContext, useEffect } from "react";
+import { SidebarContext } from "../context/SidebarContext";
+
 import "../styles/Skills.css";
 
 const Skills = () => {
+  const { collapsed } = useContext(SidebarContext);
+
+  useEffect(() => {
+    // Aqui você pode usar o estado collapsed conforme necessário
+    const divElement = document.getElementById("wrapper");
+
+    if (!divElement) return;
+    collapsed
+      ? containerAddCssClass(divElement)
+      : containerRemoveCssClass(divElement);
+  }, [collapsed]);
+
+  function containerAddCssClass(divElement) {
+    divElement.classList.add("wrapper-collapsado");
+    divElement.classList.remove("wrapper");
+  }
+
+  function containerRemoveCssClass(divElement) {
+    divElement.classList.remove("wrapper-collapsado");
+    divElement.classList.add("wrapper");
+  }
+
   return (
-    <div className="wrapper">
+    <div id="wrapper" className="wrapper">
       <div className="skills-container">
         <div className="column">
           <div className="header-title">
