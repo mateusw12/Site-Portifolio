@@ -2,9 +2,9 @@
     position: relative;
     top: 25%;
     left: 20%;
-    max-width: 100vh;
     color: #fff;
     font-size: 38px;
+    padding: 10px;
 }
 
 .home-content {
@@ -18,4 +18,21 @@
     max-width: 120vh;
     font-family: cursive;
     font-weight: bold;
+}
+
+.container {
+    position: relative;
+    top: 25%;
+    left: 20%;
+}
+
+/* Media query para telas menores que 576px (celulares em modo retrato) */
+@media (max-width: 576px) {
+    .home-container {
+        left: -45%;
+    }
+
+    .container {
+        left: -55%;
+    }
 }
