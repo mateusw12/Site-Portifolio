@@ -11,9 +11,19 @@ const Home = () => {
 
     if (!divElement) return;
     collapsed
-      ? divElement.classList.add("container")
-      : divElement.classList.remove("container");
+      ? containerAddCssClass(divElement)
+      : containerRemoveCssClass(divElement);
   }, [collapsed]);
+
+  function containerAddCssClass(divElement) {
+    divElement.classList.add("container");
+    divElement.classList.remove("home-container");
+  }
+
+  function containerRemoveCssClass(divElement) {
+    divElement.classList.remove("container");
+    divElement.classList.add("home-container");
+  }
 
   return (
     <div id="home" className="home-container">

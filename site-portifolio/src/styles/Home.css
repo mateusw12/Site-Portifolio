@@ -1,7 +1,8 @@
 .home-container {
     position: relative;
+    max-width: 50%;
     top: 25%;
-    left: 20%;
+    left: 30%;
     color: #fff;
     font-size: 38px;
     padding: 10px;
@@ -22,17 +23,29 @@
 
 .container {
     position: relative;
+    max-width: 50% !important;
     top: 25%;
-    left: 20%;
+    left: 0%;
+    color: #fff;
+    font-size: 38px;
+    padding: 10px;
 }
 
 /* Media query para telas menores que 576px (celulares em modo retrato) */
 @media (max-width: 576px) {
     .home-container {
-        left: -45%;
+        /* left: -7%;
+        max-width: 100% !important; */
+
+        left: -23%;
+        top: 18%;
+        max-width: 95% !important;
+
     }
 
     .container {
-        left: -55%;
+        left: -30%;
+        top: 18%;
+        max-width: 100% !important;
     }
 }
