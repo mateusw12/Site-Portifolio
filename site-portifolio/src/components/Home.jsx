@@ -6,7 +6,6 @@ const Home = () => {
   const { collapsed } = useContext(SidebarContext);
 
   useEffect(() => {
-    // Aqui você pode usar o estado collapsed conforme necessário
     const divElement = document.getElementById("home");
 
     if (!divElement) return;

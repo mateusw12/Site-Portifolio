@@ -4,9 +4,11 @@ import "../styles/Project.css";
 import "../styles/SideBar.css";
 
 const Project = () => {
+  
   return (
     <div id="project" className="project-content">
       <ProjectCard
+        id={1}
         cardTitle={"Padaria"}
         cardContent={
           "O sistema é desenvolvido em angular e projetado para fornecer uma simulação de sistema comercial de uma padaria." +
@@ -19,6 +21,7 @@ const Project = () => {
         }
       ></ProjectCard>
       <ProjectCard
+        id={2}
         cardTitle={"Clima Js"}
         cardContent={
           "Aplicação que consulta o clima atual da cidade informada, feito puramente em java script."
@@ -29,6 +32,7 @@ const Project = () => {
         }
       ></ProjectCard>
       <ProjectCard
+        id={3}
         cardTitle={"Hospital System"}
         cardContent={
           "O sistema é desenvolvido em angular é projetado para fornecer uma simulação de sistema comercial de um hospital." +
@@ -41,6 +45,7 @@ const Project = () => {
         }
       ></ProjectCard>
       <ProjectCard
+        id={4}
         cardTitle={"Player Music"}
         cardContent={
           "Projeto tocador de música feito puramente em java script."
@@ -51,6 +56,7 @@ const Project = () => {
         }
       ></ProjectCard>
       <ProjectCard
+        id={5}
         cardTitle={"Youtube Clone"}
         cardContent={
           "Primeiro projeto feito em React, é um clone do Youtube, usando as melhores boas práticas." +
