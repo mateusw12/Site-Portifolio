@@ -1,47 +1,12 @@
 .home-container {
-    position: relative;
-    max-width: 50%;
-    top: 25%;
-    left: 30%;
-    color: #fff;
-    font-size: 38px;
-    padding: 10px;
-}
-
-.home-content {
-    text-align: center;
-    max-width: 100vh;
-    font-family: cursive;
-}
-
-.home-content-title {
-    text-align: center;
-    max-width: 120vh;
     font-family: cursive;
     font-weight: bold;
 }
 
-.container {
-    position: relative;
-    max-width: 50% !important;
-    top: 25%;
-    left: 0%;
-    color: #fff;
-    font-size: 38px;
-    padding: 10px;
+.home-title {
+    text-align: center;
 }
 
-/* Media query para telas menores que 576px (celulares em modo retrato) */
-@media (max-width: 576px) {
-    .home-container {
-        left: -15%;
-        top: 18%;
-        max-width: 95% !important;
-    }
-
-    .container {
-        left: -30%;
-        top: 18%;
-        max-width: 100% !important;
-    }
+.home-content {
+    text-align: center;
 }
