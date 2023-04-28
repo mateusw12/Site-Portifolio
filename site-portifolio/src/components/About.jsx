@@ -1,38 +1,12 @@
-import React, { useContext, useEffect } from "react";
-import { SidebarContext } from "../context/SidebarContext";
+import React from "react";
+
 import "../styles/About.css";
 
 const About = () => {
-  const { collapsed } = useContext(SidebarContext);
-
-  useEffect(() => {
-    const divElement = document.getElementById("about");
-
-    if (!divElement) return;
-    collapsed
-      ? containerAddCssClass(divElement)
-      : containerRemoveCssClass(divElement);
-  }, [collapsed]);
-
-  function containerAddCssClass(divElement) {
-    divElement.classList.add("container-collapsado");
-    divElement.classList.add("container-about-collapsado");
-    divElement.classList.remove("about-container");
-  }
-
-  function containerRemoveCssClass(divElement) {
-    divElement.classList.remove("container-collapsado");
-    divElement.classList.remove("container-about-collapsado");
-    divElement.classList.add("about-container");
-  }
-
   return (
-    <div id="about" className="about-container">
-      <div className="header-title">
-        <b>Um pouco sobre mim:</b>
-      </div>
-      <hr />
-      <div className="about-content">
+    <div className="format-text">
+      <h1>Um pouco sobre mim:</h1>
+      <div className="align-text">
         <p>
           Meu nome é Mateus Walz, tenho 23 anos, sou formado em Bacharelado em
           Engenharia de Software. Tenho 2(dois) anos de experiência na área de

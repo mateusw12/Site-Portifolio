@@ -1,20 +1,6 @@
-body {
-  background: url('https://wallpapers.com/images/featured/m8kr2hfvrwlt8j5g.jpg');
-  background-size: contain;
-  font-family: sans-serif;
-}
-
-ul {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  width: 100%;
-}
-
-.header-title {
-  text-align: center;
-}
+ body {
+     height: 100%;
+     width: 100%;
+     background: #fcf7f7;
+     background-size: cover;
+ }

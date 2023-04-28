@@ -1,39 +1,26 @@
-import React, { useContext, useEffect } from "react";
-import { SidebarContext } from "../context/SidebarContext";
+import React from "react";
+
 import "../styles/Home.css";
 
 const Home = () => {
-  const { collapsed } = useContext(SidebarContext);
-
-  useEffect(() => {
-    const divElement = document.getElementById("home");
-
-    if (!divElement) return;
-    collapsed
-      ? containerAddCssClass(divElement)
-      : containerRemoveCssClass(divElement);
-  }, [collapsed]);
-
-  function containerAddCssClass(divElement) {
-    divElement.classList.add("container");
-    divElement.classList.remove("home-container");
-  }
-
-  function containerRemoveCssClass(divElement) {
-    divElement.classList.remove("container");
-    divElement.classList.add("home-container");
-  }
-
   return (
-    <div id="home" className="home-container">
-      <div className="home-content-title">
-        <h1>SEJA BEM VINDO AO MEU PORTIFÓLIO!!</h1>
+    <div className="home-container">
+      <div className="row">
+        <div className="col-md-12">
+          <div className="home-title">
+            <h1>Seja Bem Vindo !!!</h1>
+          </div>
+        </div>
       </div>
-      <div className="home-content">
-        <h3>
-          FIQUE A VONTADE PARA EXPLORAR, ACESSE AS MÍDIAS SOCIAS PARA ENTRAR EM
-          CONTATO!!
-        </h3>
+      <div className="row">
+        <div className="col-md-12">
+          <div className="home-content">
+            <h3>
+              Fique a vontade para explorar meu portifólio, caso tenha gostado
+              entre em contato através das mídias sociais!!
+            </h3>
+          </div>
+        </div>
       </div>
     </div>
   );
