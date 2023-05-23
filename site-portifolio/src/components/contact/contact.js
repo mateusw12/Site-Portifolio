@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Grid, Cell, List, ListItem, ListItemContent } from 'react-mdl';
 import { socialMediaItems } from '../../constant/socialMediaItems';
+import './styled.css';
 
 class Contact extends Component {
     render() {

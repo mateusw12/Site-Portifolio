@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Grid, Cell } from 'react-mdl';
 import { socialLinks } from '../../constant/socialMediaItems'
+import './styled.css';
 
 class Landing extends Component {
     render() {

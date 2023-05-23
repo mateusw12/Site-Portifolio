@@ -1,0 +1,9 @@
+.resume-right-col {
+    background: #27221f;
+    color: white;
+}
+
+.card-body {
+    min-height: '200';
+    max-height: '200'
+}

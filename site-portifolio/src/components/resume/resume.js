@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-import { Grid, Cell } from 'react-mdl';
+import { Cell, Grid } from 'react-mdl';
 import Education from '../education/education';
+import './styled.css';
 
 class Resume extends Component {
     render() {
@@ -22,17 +23,8 @@ class Resume extends Component {
                         <p>Sou Mateus Walz, um engenheiro de software formado, com 2 anos de experiência em Tecnologia da Informação. Trabalho como desenvolvedor full stack, utilizando React, Angular, Java Spring Boot, .NET e Python. Tenho experiência em melhorias e correções de bugs em aplicações existentes e projetos no GitHub. Sou adaptável, proativo, dedicado e organizado, além de ter paixão por tecnologia e hobbies como videogame, estudo de novas tecnologias e esportes, especialmente futebol..</p>
                         <hr style={{ borderTop: '3px solid #833fb2', width: '50%' }} />
 
-                        <h5>Endereço:</h5>
-                        <p>Jaraguá do Sul, Santa Catarina</p>
-
-                        <h5>Telefone</h5>
-
-                        <p>47 988226082</p>
-                        <p>47 988334213</p>
-                        <hr style={{ borderTop: '3px solid #833fb2', width: '50%' }} />
-
                     </Cell>
-                    <Cell className="resume-right-col" col={8}>
+                    <Cell className="resume-right-col" col={8} style={{ padding: '5px' }}>
                         <h2>Formação</h2>
 
                         <Education

@@ -3,6 +3,7 @@ import { Cell, Grid, Tab, Tabs } from 'react-mdl';
 import { projectTabs } from '../../constant/projectTab';
 import { repositoryProject } from '../../constant/repositoryProject';
 import ProjectCard from '../../shared/projectCard/Card';
+import './styled.css';
 
 class Projects extends Component {
     constructor(props) {
