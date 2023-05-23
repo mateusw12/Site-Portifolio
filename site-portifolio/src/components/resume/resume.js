@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Grid, Cell } from 'react-mdl';
-import Education from './education';
+import Education from '../education/education';
 
 class Resume extends Component {
     render() {

@@ -3,7 +3,7 @@ import './App.css';
 import { Layout, Navigation, Header, Drawer, Content } from 'react-mdl';
 import Main from './components/main';
 import { Link } from 'react-router-dom';
-import { menuItems } from './constant/constant';
+import { menuItems } from './constant/menuItems';
 
 class App extends Component {
   render() {
