@@ -1,10 +1,7 @@
 .landing-grid {
-    background: #833ab4;
-    /* fallback for old browsers */
-    background: -webkit-linear-gradient(to right, #fcb045, #fd1d1d, #833ab4);
-    /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to right, #fcb045, #fd1d1d, #833ab4);
-    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    background: #667db6;
+    background: -webkit-linear-gradient(to right, #667db6, #0082c8, #0082c8, #667db6);
+    background: linear-gradient(to right, #667db6, #0082c8, #0082c8, #667db6);
     text-align: center;
     position: fixed;
     top: 0;
@@ -16,6 +13,7 @@
 .avatar-img {
     height: 250px;
     padding-top: 5em;
+    border-radius: 12px;
 }
 
 .banner-text {
