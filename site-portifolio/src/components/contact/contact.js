@@ -11,9 +11,9 @@ class Contact extends Component {
                     <Cell col={6}>
                         <h2>Mateus Walz</h2>
                         <img
-                            src="https://mitadmissions.org/wp-content/uploads/2018/07/avatar_5492.jpg"
+                            src={process.env.PUBLIC_URL + '/assets/perfil.jpg'}
                             alt="Mateus Walz"
-                            style={{ height: '250px' }}
+                            className='image-settings'
                         />
                         <p style={{ width: '75%', margin: 'auto', paddingTop: '1em' }}>
                             A educação é a chave que abre as portas do conhecimento, transformando vidas e construindo um futuro melhor.

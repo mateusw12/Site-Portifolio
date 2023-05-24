@@ -37,3 +37,8 @@
     font-size: 30px;
     padding-left: 5rem;
 }
+
+.image-settings {
+    height: 250px;
+    border-radius: 25px;
+}

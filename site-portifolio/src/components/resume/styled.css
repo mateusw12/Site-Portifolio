@@ -7,3 +7,8 @@
     min-height: '200';
     max-height: '200'
 }
+
+.image-settings {
+    height: 250px;
+    border-radius: 25px;
+}

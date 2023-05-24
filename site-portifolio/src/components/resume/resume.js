@@ -10,13 +10,14 @@ class Resume extends Component {
                 <Grid>
                     <Cell col={4}>
                         <div style={{ textAlign: 'center' }}>
-                            <img src="https://mitadmissions.org/wp-content/uploads/2018/07/avatar_5492.jpg"
+                            <img
                                 alt="Mateus Walz"
-                                style={{ height: '200px' }}
+                                src={process.env.PUBLIC_URL + '/assets/perfil.jpg'}
+                                className='image-settings'
                             />
                         </div>
 
-                        <h3 style={{ paddingTop: '2em' }}>Mateus Walz</h3>
+                        <h3 style={{ paddingTop: '20px' }}>Mateus Walz</h3>
                         <h4 style={{ color: 'grey' }}>Desenvolvedor Full Stack</h4>
 
                         <hr style={{ borderTop: '3px solid #833fb2', width: '50%' }} />
