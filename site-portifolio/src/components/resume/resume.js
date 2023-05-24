@@ -25,7 +25,7 @@ class Resume extends Component {
                         <hr style={{ borderTop: '3px solid #833fb2', width: '50%' }} />
 
                     </Cell>
-                    <Cell className="resume-right-col" col={8} style={{ padding: '5px' }}>
+                    <Cell className="resume-right-col format-education" col={8}>
                         <h2>Formação</h2>
 
                         <Education

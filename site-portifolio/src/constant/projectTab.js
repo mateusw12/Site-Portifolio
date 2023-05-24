@@ -5,7 +5,7 @@ export const projectTabs = [
         name: "Angular"
     }, 
     {
-        name: "Bootstrapp"
+        name: "Bootstrap"
     },
     {
         name: "React"
