@@ -1,6 +1,5 @@
- body {
-     height: 100%;
-     width: 100%;
-     background: #fcf7f7;
-     background-size: cover;
- }
+.header-color {
+  background: #667db6;
+  background: -webkit-linear-gradient(to right, #667db6, #0082c8, #0082c8, #667db6);
+  background: linear-gradient(to right, #667db6, #0082c8, #0082c8, #667db6);
+}

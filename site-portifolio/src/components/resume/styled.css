@@ -1,0 +1,20 @@
+.resume-right-col {
+    background: #27221f;
+    color: white;
+}
+
+.card-body {
+    min-height: '200';
+    max-height: '200'
+}
+
+.image-settings {
+    height: 250px;
+    border-radius: 25px;
+}
+
+.format-education {
+    padding: 5px;
+    border-radius: 12px;
+
+}
