@@ -11,7 +11,7 @@ class Contact extends Component {
                     <Cell col={6}>
                         <h2>Mateus Walz</h2>
                         <img
-                            src={process.env.PUBLIC_URL + '/assets/perfil.jpg'}
+                            src={process.env.PUBLIC_URL + '/assets/perfil.png'}
                             alt="Mateus Walz"
                             className='image-settings'
                         />

@@ -11,7 +11,7 @@ class Landing extends Component {
                     <Cell col={12}>
                         <img
                             alt="Mateus Walz"
-                            src={process.env.PUBLIC_URL + '/assets/perfil.jpg'}
+                            src={process.env.PUBLIC_URL + '/assets/perfil.png'}
                             className="avatar-img"
                         />
                     </Cell>

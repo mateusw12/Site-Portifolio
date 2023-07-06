@@ -12,7 +12,7 @@ class Resume extends Component {
                         <div style={{ textAlign: 'center' }}>
                             <img
                                 alt="Mateus Walz"
-                                src={process.env.PUBLIC_URL + '/assets/perfil.jpg'}
+                                src={process.env.PUBLIC_URL + '/assets/perfil.png'}
                                 className='image-settings'
                             />
                         </div>
