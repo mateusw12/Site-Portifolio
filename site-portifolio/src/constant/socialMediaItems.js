@@ -21,11 +21,6 @@ export const socialMediaItems = [
         icon: "fa fa-linkedin",
         name: "Linkedin"
     },
-    {
-        value: "47 988226082",
-        icon: "fa fa-whatsapp",
-        name: "Whats app"
-    },
 ]
 
 export const socialLinks = [
