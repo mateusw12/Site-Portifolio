@@ -16,8 +16,8 @@ class ProjectCard extends Component {
                     background: `url(${this.props.imgUrl}) center / cover `
                 }} >
                 </CardTitle>
-                <CardText style={{ height: '250px', color: "#000" }}>
-                    <b>  <h5 style={{ color: "#000" }}>{this.props.projectName}</h5></b>
+                    <b>  <h5 style={{ display: "flex", justifyContent: "flex-start", paddingLeft: "10px", color: "#000" }}>{this.props.projectName}</h5></b>
+                <CardText style={{ height: '250px', color: "#000", overflow: "auto" }}>
                     <p>{this.props.description}</p>
                 </CardText>
                 <CardActions border>
