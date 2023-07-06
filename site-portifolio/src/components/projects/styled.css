@@ -31,6 +31,14 @@
         gap: 48px;
         justify-content: center;
     }
+
+    .mdl-grid {
+        padding-top: calc(100vh - 630px);
+    }
+
+    .content {
+        padding-top: 20px;
+    }
 }
 
 @media (max-width: 480px) {
@@ -40,7 +48,12 @@
         gap: 30px;
         justify-content: center;
     }
+
     .category-tabs {
         top: 38px;
     }
+
+   .content {
+       padding-top: 20px;
+   }
 }
