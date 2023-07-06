@@ -64,6 +64,12 @@
         color: white;
     }
 
+    .mdl-grid {
+        display: flex;
+        justify-content: center;
+    }
+
+
     .banner-text {
         display: flex;
         flex-direction: column;
@@ -88,6 +94,11 @@
         font-size: 66px;
         font-weight: bold;
         color: white;
+    }
+
+    .mdl-grid {
+        display: flex;
+        justify-content: center;
     }
 
     .banner-text {
