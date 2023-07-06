@@ -17,7 +17,7 @@ class Landing extends Component {
                     </Cell>
 
                     <div className="banner-text">
-                        <h1>Desenvolvedor Full Stack</h1>
+                        <div className='align-title'><h1>Desenvolvedor Full Stack</h1></div>
                         <hr />
                         <p> Bootstrap | React | Angular | NodeJs | Java | Spring Boot | Python | .NET | SQL Server</p>
 
