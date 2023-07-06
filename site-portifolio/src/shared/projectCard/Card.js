@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Button, Card, CardActions, CardMenu, CardText, CardTitle, IconButton } from 'react-mdl';
+import { Button, Card, CardActions, CardMenu, CardText, CardTitle } from 'react-mdl';
 
 class ProjectCard extends Component {
     constructor(props) {
