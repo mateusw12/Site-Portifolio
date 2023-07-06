@@ -7,28 +7,23 @@ class ProjectCard extends Component {
         this.state = {};
     }
 
-    //    function onGitHubClick(link) {
-    //     window.open(String(link), "_blank")
-    // }
-
     render() {
         return (
-            <Card shadow={5} style={{ minWidth: '450', margin: 'auto', height: '500px' }}>
+            <Card shadow={5} style={{ minWidth: '450', margin: 'auto', height: '500px', backgroundColor: "#F5F5F5" }}>
                 <CardTitle style={{
                     color: '#fff',
-                    height: '176px',
+                    height: '200px',
                     background: `url(${this.props.imgUrl}) center / cover `
                 }} >
-                    {this.props.projectName}
                 </CardTitle>
-                <CardText style={{ height: '250px' }}>
+                <CardText style={{ height: '250px', color: "#000" }}>
+                    <b>  <h5 style={{ color: "#000" }}>{this.props.projectName}</h5></b>
                     <p>{this.props.description}</p>
                 </CardText>
                 <CardActions border>
-                    <Button colored>GitHub</Button>
+                    <a href={this.props.link} target="_blank" without rel="noreferrer"> <Button colored>GitHub</Button></a>
                 </CardActions>
                 <CardMenu style={{ color: '#fff' }}>
-                    <IconButton name="share" />
                 </CardMenu>
             </Card >
         )
