@@ -15,7 +15,7 @@ export const PROJECTS: IProject[] = [
     repo: "https://github.com/mateusw12/met-museum",
   },
   {
-    title: "Youtube CLone",
+    title: "Youtube Clone",
     description:
       "Projeto clone do youtube feito com React puro.",
     stacks: ["React", "TypeScript"],
