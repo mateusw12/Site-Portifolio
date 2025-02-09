@@ -10,7 +10,6 @@ interface Project {
   img: string;
   stacks: string[];
   repo: string;
-  demo: string;
 }
 interface ProjectsProps {
   projects: Project[];
