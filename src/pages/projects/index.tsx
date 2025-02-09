@@ -3,16 +3,10 @@ import { Pagination } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/swiper-bundle.css";
 import { Layout } from "../../components/layout";
+import { IProject } from "@/constants/interface";
 
-interface Project {
-  title: string;
-  description: string;
-  img: string;
-  stacks: string[];
-  repo: string;
-}
 interface ProjectsProps {
-  projects: Project[];
+  projects: IProject[];
 }
 
 export function Projects({ projects }: ProjectsProps) {
@@ -40,12 +34,6 @@ export function Projects({ projects }: ProjectsProps) {
               className="bg-light-surface dark:bg-dark-surface rounded-md shadow-md border border-light-accent dark:border-dark-accent"
             >
               <div className="flex flex-col h-full">
-                <img
-                  src={project.img}
-                  alt={project.title}
-                  className="h-[12.5rem] w-full rounded-t-md object-cover object-center"
-                />
-
                 <div className="px-4 pt-2 pb-4 placeholder-blue-400 flex flex-col flex-1 gap-2 min-h-[15rem]">
                   <h3 className="text-light-primary dark:text-dark-secondary text-xl font-bold">
                     {project.title}

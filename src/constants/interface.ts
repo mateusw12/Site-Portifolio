@@ -14,7 +14,6 @@ export interface ISkill {
 export interface IProject {
   title: string;
   description: string;
-  img: any;
   stacks: string[];
   repo: string;
 }
