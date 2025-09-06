@@ -21,7 +21,7 @@ export function About() {
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8 py-8 max-w-6xl">
         <div className="flex items-center flex-col gap-6">
           <img
-            src="profile.jpg"
+            src="icon-profile.webp"
             alt="Profile"
             width={240}
             height={240}
