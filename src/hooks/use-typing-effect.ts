@@ -1,18 +1,25 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState } from "react";
 
 export function useTypingEffect(text: string, speed: number, trigger: boolean) {
-  const [typedText, setTypedText] = useState('');
+  const [typedText, setTypedText] = useState("");
 
   useEffect(() => {
-    if (trigger) {
-      let i = 0;
-      const interval = setInterval(() => {
-        setTypedText(text.slice(0, i));
-        i++;
-        if (i > text.length) clearInterval(interval);
-      }, speed);
-      return () => clearInterval(interval);
-    }
+    if (!trigger) return;
+
+    let i = 0;
+    let frame: number;
+
+    const type = () => {
+      setTypedText(text.slice(0, i));
+      i++;
+      if (i <= text.length) {
+        frame = window.setTimeout(type, speed);
+      }
+    };
+
+    type();
+
+    return () => clearTimeout(frame);
   }, [text, speed, trigger]);
 
   return typedText;
