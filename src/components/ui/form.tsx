@@ -1,192 +1,180 @@
-import * as React from "react";
-import { useSendEmail } from "@/hooks/mutations/use-send-email";
-import { useToast } from "@/hooks/use-toast";
-import { cn } from "@/lib/utils";
+import * as React from 'react';
+import * as LabelPrimitive from '@radix-ui/react-label';
+import { Slot } from '@radix-ui/react-slot';
 import {
-  ContactFormSchema,
-  ContactFormValues,
-} from "@/pages/contact/contact-form-schema";
+  Controller,
+  ControllerProps,
+  FieldPath,
+  FieldValues,
+  FormProvider,
+  useFormContext,
+} from 'react-hook-form';
 
-export function ContactForm() {
-  const { mutate, isPending } = useSendEmail();
-  const { toast } = useToast();
+import { cn } from '@/lib/utils';
+import { Label } from '@/components/ui/label';
 
-  const [formLibs, setFormLibs] = React.useState<any>(null);
-  const [formMethods, setFormMethods] = React.useState<any>(null);
+const Form = FormProvider;
 
-  // Lazy load das libs pesadas
-  const loadLibs = async () => {
-    if (formLibs) return;
+type FormFieldContextValue<
+  TFieldValues extends FieldValues = FieldValues,
+  TName extends FieldPath<TFieldValues> = FieldPath<TFieldValues>
+> = {
+  name: TName;
+};
 
-    const [
-      rhf,
-      formModule,
-      inputModule,
-      textareaModule,
-      buttonModule,
-      labelModule,
-      slotModule,
-      zodModule,
-    ] = await Promise.all([
-      import("react-hook-form"),
-      import("@/components/ui/form"),
-      import("@/components/ui/input"),
-      import("@/components/ui/textarea"),
-      import("@/components/ui/button"),
-      import("@radix-ui/react-label"),
-      import("@radix-ui/react-slot"),
-      import("@hookform/resolvers/zod"),
-    ]);
+const FormFieldContext = React.createContext<FormFieldContextValue>(
+  {} as FormFieldContextValue
+);
 
-    const form = rhf.useForm({
-      resolver: zodModule.zodResolver(ContactFormSchema),
-      defaultValues: { name: "", email: "", message: "" },
-    });
+const FormField = <
+  TFieldValues extends FieldValues = FieldValues,
+  TName extends FieldPath<TFieldValues> = FieldPath<TFieldValues>
+>({
+  ...props
+}: ControllerProps<TFieldValues, TName>) => {
+  return (
+    <FormFieldContext.Provider value={{ name: props.name }}>
+      <Controller {...props} />
+    </FormFieldContext.Provider>
+  );
+};
 
-    setFormLibs({
-      ...formModule,
-      Input: inputModule.Input,
-      Textarea: textareaModule.Textarea,
-      Button: buttonModule.Button,
-      LabelPrimitive: labelModule.Root,
-      Slot: slotModule.Slot,
-    });
+const useFormField = () => {
+  const fieldContext = React.useContext(FormFieldContext);
+  const itemContext = React.useContext(FormItemContext);
+  const { getFieldState, formState } = useFormContext();
 
-    setFormMethods(form);
-  };
+  const fieldState = getFieldState(fieldContext.name, formState);
 
-  // Trigger lazy load ao interagir ou aparecer na viewport
-  const containerRef = React.useRef<HTMLDivElement>(null);
-  React.useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) loadLibs();
-      },
-      { threshold: 0.1 }
-    );
-
-    if (containerRef.current) observer.observe(containerRef.current);
-
-    return () => observer.disconnect();
-  }, []);
-
-  if (!formLibs || !formMethods) {
-    return (
-      <div
-        ref={containerRef}
-        className="py-8 text-center"
-        onMouseEnter={loadLibs}
-        onTouchStart={loadLibs}
-      >
-        Carregando formulário...
-      </div>
-    );
+  if (!fieldContext) {
+    throw new Error('useFormField should be used within <FormField>');
   }
 
-  const {
-    Form,
-    FormField,
-    FormItem,
-    FormLabel,
-    FormControl,
-    FormMessage,
-    Input,
-    Textarea,
-    Button,
-  } = formLibs;
+  const { id } = itemContext;
 
-  function onSubmit(data: ContactFormValues) {
-    mutate(data, {
-      onSuccess: () => {
-        formMethods.reset();
-        toast({
-          title: "Sucesso!",
-          description: "Mensagem enviada com sucesso.",
-        });
-      },
-      onError: (error: Error) => {
-        formMethods.reset();
-        toast({
-          title: "Erro!",
-          description: `Falha ao enviar mensagem: ${error.message}`,
-          variant: "destructive",
-        });
-      },
-    });
+  return {
+    id,
+    name: fieldContext.name,
+    formItemId: `${id}-form-item`,
+    formDescriptionId: `${id}-form-item-description`,
+    formMessageId: `${id}-form-item-message`,
+    ...fieldState,
+  };
+};
+
+type FormItemContextValue = {
+  id: string;
+};
+
+const FormItemContext = React.createContext<FormItemContextValue>(
+  {} as FormItemContextValue
+);
+
+const FormItem = React.forwardRef<
+  HTMLDivElement,
+  React.HTMLAttributes<HTMLDivElement>
+>(({ className, ...props }, ref) => {
+  const id = React.useId();
+
+  return (
+    <FormItemContext.Provider value={{ id }}>
+      <div ref={ref} className={cn('space-y-2', className)} {...props} />
+    </FormItemContext.Provider>
+  );
+});
+FormItem.displayName = 'FormItem';
+
+const FormLabel = React.forwardRef<
+  React.ElementRef<typeof LabelPrimitive.Root>,
+  React.ComponentPropsWithoutRef<typeof LabelPrimitive.Root>
+>(({ className, ...props }, ref) => {
+  const { error, formItemId } = useFormField();
+
+  return (
+    <Label
+      ref={ref}
+      className={cn(error && 'text-red-600 dark:text-red-600', className)}
+      htmlFor={formItemId}
+      {...props}
+    />
+  );
+});
+FormLabel.displayName = 'FormLabel';
+
+const FormControl = React.forwardRef<
+  React.ElementRef<typeof Slot>,
+  React.ComponentPropsWithoutRef<typeof Slot>
+>(({ ...props }, ref) => {
+  const { error, formItemId, formDescriptionId, formMessageId } =
+    useFormField();
+
+  return (
+    <Slot
+      ref={ref}
+      id={formItemId}
+      aria-describedby={
+        !error
+          ? `${formDescriptionId}`
+          : `${formDescriptionId} ${formMessageId}`
+      }
+      aria-invalid={!!error}
+      {...props}
+    />
+  );
+});
+FormControl.displayName = 'FormControl';
+
+const FormDescription = React.forwardRef<
+  HTMLParagraphElement,
+  React.HTMLAttributes<HTMLParagraphElement>
+>(({ className, ...props }, ref) => {
+  const { formDescriptionId } = useFormField();
+
+  return (
+    <p
+      ref={ref}
+      id={formDescriptionId}
+      className={cn('text-[0.8rem] text-muted-foreground', className)}
+      {...props}
+    />
+  );
+});
+FormDescription.displayName = 'FormDescription';
+
+const FormMessage = React.forwardRef<
+  HTMLParagraphElement,
+  React.HTMLAttributes<HTMLParagraphElement>
+>(({ className, children, ...props }, ref) => {
+  const { error, formMessageId } = useFormField();
+  const body = error ? String(error?.message) : children;
+
+  if (!body) {
+    return null;
   }
 
   return (
-    <Form {...formMethods}>
-      <form onSubmit={formMethods.handleSubmit(onSubmit)} className="space-y-4">
-        <FormField
-          control={formMethods.control}
-          name="name"
-          render={({ field, fieldState }: any) => (
-            <FormItem>
-              <FormLabel>Nome</FormLabel>
-              <FormControl>
-                <Input
-                  placeholder="Digite seu nome"
-                  className={cn(
-                    fieldState.error && "border-red-600 dark:border-red-600"
-                  )}
-                  {...field}
-                />
-              </FormControl>
-              <FormMessage />
-            </FormItem>
-          )}
-        />
-        <FormField
-          control={formMethods.control}
-          name="email"
-          render={({ field, fieldState }: any) => (
-            <FormItem>
-              <FormLabel>Email</FormLabel>
-              <FormControl>
-                <Input
-                  type="email"
-                  placeholder="Digite seu email"
-                  className={cn(
-                    fieldState.error && "border-red-600 dark:border-red-600"
-                  )}
-                  {...field}
-                />
-              </FormControl>
-              <FormMessage />
-            </FormItem>
-          )}
-        />
-        <FormField
-          control={formMethods.control}
-          name="message"
-          render={({ field, fieldState }: any) => (
-            <FormItem>
-              <FormLabel>Mensagem</FormLabel>
-              <FormControl>
-                <Textarea
-                  placeholder="Digite sua mensagem..."
-                  className={cn(
-                    "resize-none h-32",
-                    fieldState.error && "border-red-600 dark:border-red-600"
-                  )}
-                  {...field}
-                />
-              </FormControl>
-              <FormMessage />
-            </FormItem>
-          )}
-        />
-        <div className="flex justify-center">
-          <Button
-            type="submit"
-            disabled={isPending}
-            aria-label="Enviar Contato"
-          >
-            {isPending ? "enviando..." : "enviar"}
-          </Button>
-        </div>
-      </form>
-    </Form>
+    <p
+      ref={ref}
+      id={formMessageId}
+      className={cn(
+        'text-[0.8rem] font-medium text-red-600 dark:text-red-600',
+        className
+      )}
+      {...props}
+    >
+      {body}
+    </p>
   );
-}
+});
+FormMessage.displayName = 'FormMessage';
+
+export {
+  useFormField,
+  Form,
+  FormItem,
+  FormLabel,
+  FormControl,
+  FormDescription,
+  FormMessage,
+  FormField,
+};
