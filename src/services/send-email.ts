@@ -1,5 +1,3 @@
-import axios from 'axios';
-
 export interface TemplateParams {
   name: string;
   email: string;
@@ -11,6 +9,9 @@ const serviceId = import.meta.env.VITE_EMAILJS_SERVICE_ID;
 const templateId = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
 
 export async function sendEmail(templateParams: TemplateParams) {
+  const axiosModule = await import('axios');
+  const axios = axiosModule.default; 
+
   const response = await axios.post(
     `https://api.emailjs.com/api/v1.0/email/send`,
     {
@@ -20,5 +21,6 @@ export async function sendEmail(templateParams: TemplateParams) {
       template_params: templateParams,
     }
   );
+
   return response;
 }
