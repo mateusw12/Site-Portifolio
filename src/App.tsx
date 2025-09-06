@@ -7,8 +7,8 @@ import { Toaster } from "./components/ui/toaster";
 import { PROJECTS } from "./constants/projects";
 import { SKILLS } from "./constants/skills";
 import { LazySection } from "./components/lazy-on-view";
+import ScrollToTopButton from "./components/ui/scrollTopButton";
 
-// Componentes carregados sob demanda
 const About = lazy(() => import("./pages/about"));
 const Projects = lazy(() => import("./pages/projects"));
 const SkillsGrid = lazy(() => import("./pages/skills"));
@@ -23,7 +23,7 @@ function App() {
     <QueryClientProvider client={queryClient}>
       <div className="relative">
         <Navbar />
-        <Home />
+        <Home id="home" />
 
         <Suspense fallback={<div>Carregando...</div>}>
           <LazySection Component={About} />
@@ -33,6 +33,8 @@ function App() {
           <LazySection Component={Footer} />
           <LazySection Component={Socials} />
         </Suspense>
+
+        <ScrollToTopButton />
 
         <Toaster />
       </div>

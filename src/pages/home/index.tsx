@@ -1,9 +1,13 @@
 import { Button } from "@/components/ui/button";
 import { RiArrowDownDoubleFill } from "react-icons/ri";
 
-export function Home() {
+interface HomeProps {
+  id: string;
+}
+
+export function Home(props: HomeProps) {
   return (
-    <div id="home" className="bg-light-background dark:bg-dark-background">
+    <div id={props.id} className="bg-light-background dark:bg-dark-background">
       <div className="container mx-auto h-screen flex flex-col justify-center items-center gap-6 px-4 py-4 relative">
         <span className="text-lg sm:text-xl md:text-2xl text-light-text dark:text-dark-text animate-slide-up">
           hello world!
