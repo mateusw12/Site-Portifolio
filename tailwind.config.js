@@ -1,56 +1,59 @@
 /** @type {import('tailwindcss').Config} */
 export default {
-  content: ['./index.html', './src/**/*.{js,ts,jsx,tsx}'],
-  darkMode: ['class'],
+  content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
+  darkMode: ["class"],
   theme: {
     extend: {
       fontFamily: {
-        sans: ['Karla', 'sans-serif'],
-        mono: ['IBM Plex Mono', 'mono'],
+        sans: ["Karla", "sans-serif"],
+        mono: ["IBM Plex Mono", "mono"],
       },
       fontSize: {
         subtitle: [
-          '1.5rem',
+          "1.5rem",
           {
-            fontWeight: '500',
+            fontWeight: "500",
           },
         ],
       },
       colors: {
         light: {
-          background: '#F5F5FA', // mais claro e neutro
-          surface: '#E4E4F1',    // leve contraste com o fundo
-          accent: '#D0D0F3',
-          primary: '#1B0E3B',   // escuro para bom contraste
-          secondary: '#5A5FA5',
-          highlight: '#2F2F36',
-          text: '#2C2C35',      // texto mais escuro para melhor legibilidade
+          background: "#F5F5F5",
+          inputBackground: "#ECECEC", // cinza claro
+          surface: "#EAEAEA",
+          accent: "#B0B0B0", // cinza médio
+          primary: "#1A1A1A",
+          secondary: "#555555",
+          highlight: "#7A7A7A", // cinza escuro
+          text: "#222222",
         },
         dark: {
-          background: '#121212', // escuro neutro
-          surface: '#1E1E24',    // leve contraste
-          accent: '#3D3D49',
-          primary: '#918CFF',
-          secondary: '#C0C3FD',
-          highlight: '#E3E3FF',
-          text: '#D0D0E0',       // contraste suficiente
+          background: "#121212",
+          inputBackground: "#1F1F1F",
+          surface: "#1E1E1E",
+          accent: "#00C853",
+          primary: "#FFFFFF",
+          secondary: "#AAAAAA",
+          highlight: "#1E88E5",
+          text: "#D0D0D0",
         },
       },
+
       keyframes: {
-        'slide-up': {
-          '0%': { transform: 'translateY(30px)' },
-          '100%': { transform: 'translateY(0)' },
+        "slide-up": {
+          "0%": { transform: "translateY(30px)" },
+          "100%": { transform: "translateY(0)" },
         },
-        'fade-in-up': {
-          '0%': { opacity: 0, transform: 'translateY(-50px)' },
-          '100%': { opacity: 1, transform: 'translateY(0)' },
+        "fade-in-up": {
+          "0%": { opacity: 0, transform: "translateY(-50px)" },
+          "100%": { opacity: 1, transform: "translateY(0)" },
         },
       },
       animation: {
-        'slide-up': 'slide-up 2s ease-out',
-        'fade-in-up': 'fade-in-up 2s ease-out forwards',
+        "slide-up": "slide-up 2s ease-out",
+        "fade-in-up": "fade-in-up 2s ease-out forwards",
       },
     },
   },
-  plugins: [require('tailwindcss-animate')],
+  plugins: [require("tailwindcss-animate")],
 };
