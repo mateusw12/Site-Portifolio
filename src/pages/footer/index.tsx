@@ -1,7 +1,7 @@
 import { SocialLink } from "@/components/social-link";
 import { SOCIALS } from "@/constants/socials";
 
-export function Footer() {
+export default function Footer() {
   return (
     <div className="bg-light-surface dark:bg-dark-surface shadow-md'">
       <div className="container mx-auto h-auto flex flex-col justify-center items-center gap-6 p-6">

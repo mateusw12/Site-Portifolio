@@ -11,7 +11,7 @@ const perfil = {
 };
 `;
 
-export function About() {
+export default function About() {
   const { ref, inView } = useInView({ triggerOnce: true, threshold: 0.5 });
 
   const typedText = useTypingEffect(fullProfile, 20, inView);

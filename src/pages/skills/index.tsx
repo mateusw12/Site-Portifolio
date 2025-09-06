@@ -1,12 +1,12 @@
-import { ReactNode } from 'react';
-import { useInView } from 'react-intersection-observer';
-import { Layout } from '../../components/layout';
+import { ReactNode } from "react";
+import { useInView } from "react-intersection-observer";
+import { Layout } from "../../components/layout";
 import {
   Tooltip,
   TooltipContent,
   TooltipProvider,
   TooltipTrigger,
-} from '@/components/ui/tooltip';
+} from "@/components/ui/tooltip";
 
 interface Skill {
   name: string;
@@ -17,7 +17,7 @@ interface SkillsGridProps {
   skills: Skill[];
 }
 
-export function SkillsGrid({ skills }: SkillsGridProps) {
+export default function SkillsGrid({ skills }: SkillsGridProps) {
   const { ref, inView } = useInView({ triggerOnce: true, threshold: 0.2 });
 
   return (
@@ -32,7 +32,7 @@ export function SkillsGrid({ skills }: SkillsGridProps) {
               <TooltipTrigger asChild>
                 <div
                   className={`flex flex-col gap-1 items-center justify-center p-4 sm:p-6 rounded-lg bg-light-surface dark:bg-dark-surface shadow-xl opacity-0 transition-all duration-500 ${
-                    inView ? 'animate-fade-in-up' : ''
+                    inView ? "animate-fade-in-up" : ""
                   } w-[6rem] h-[6rem]`}
                   style={{ animationDelay: `${index * 100}ms` }}
                 >

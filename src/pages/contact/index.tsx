@@ -1,8 +1,8 @@
-import { FaRegWindowMinimize } from 'react-icons/fa';
-import { RiCheckboxMultipleBlankLine, RiCloseLargeFill } from 'react-icons/ri';
-import { ContactForm } from './form';
+import { FaRegWindowMinimize } from "react-icons/fa";
+import { RiCheckboxMultipleBlankLine, RiCloseLargeFill } from "react-icons/ri";
+import { ContactForm } from "./form";
 
-export function Contact() {
+export default function Contact() {
   return (
     <div id="contact" className="bg-light-background dark:bg-dark-background">
       <div className="container mx-auto h-full flex flex-col justify-center items-center py-20 px-4">

@@ -9,7 +9,7 @@ interface ProjectsProps {
   projects: IProject[];
 }
 
-export function Projects({ projects }: ProjectsProps) {
+export default function Projects({ projects }: ProjectsProps) {
   return (
     <Layout subtitle="<!-- projetos -->" id="projects">
       <div className="py-6 w-full max-w-screen-lg">

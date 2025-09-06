@@ -1,5 +1,5 @@
-import { Button } from '@/components/ui/button';
-import { RiArrowDownDoubleFill } from 'react-icons/ri';
+import { Button } from "@/components/ui/button";
+import { RiArrowDownDoubleFill } from "react-icons/ri";
 
 export function Home() {
   return (
@@ -9,7 +9,7 @@ export function Home() {
           hello world!
         </span>
         <code className="font-mono text-3xl md:text-6xl text-light-primary dark:text-dark-secondary">
-          {'<Mateus Walz/>'}
+          {"<Mateus Walz/>"}
         </code>
         <p className="text-2xl md:text-4xl text-light-secondary dark:text-dark-primary ">
           engenheiro de software
