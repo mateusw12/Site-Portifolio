@@ -14,7 +14,7 @@ export function Home() {
         <p className="text-2xl md:text-4xl text-light-secondary dark:text-dark-primary ">
           engenheiro de software
         </p>
-        <Button variant="outline">
+        <Button aria-label="Baixar CV" variant="outline">
           <a href="ca_mateus_walz.pdf" target="_blank">
             download CV
           </a>

@@ -113,7 +113,7 @@ export function ContactForm() {
           )}
         />
         <div className="flex justify-center">
-          <Button type="submit" disabled={isPending}>
+          <Button aria-label='Enviar Contato' type="submit" disabled={isPending}>
             {isPending ? 'enviando..' : 'enviar'}
           </Button>
         </div>
