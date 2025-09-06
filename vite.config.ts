@@ -10,4 +10,7 @@ export default defineConfig({
       '@': path.resolve(__dirname, 'src'), // Configura o alias "@" para apontar para "src"
     },
   },
+  build: {
+    sourcemap: true,
+  },
 });
