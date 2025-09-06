@@ -7,6 +7,7 @@ const perfil = {
   nome: 'Mateus Walz',
   idade: 25,
   local: 'Jaraguá do Sul - SC',
+  graduacao: 'Engenharia de Software - Univille',
   area: 'Full Stack',
 };
 `;
@@ -36,25 +37,31 @@ export default function About() {
 
         <div className="flex flex-col gap-4 justify-center">
           <p className="text-base font-medium text-light-text dark:text-dark-text">
-            Sou engenheiro de software pleno, apaixonado por tecnologia e
-            desenvolvimento front-end. Gosto de criar interfaces intuitivas e
-            performáticas, além de resolver problemas e otimizar processos
-            através do código.
+            Sou engenheiro de software apaixonado por tecnologia e
+            desenvolvimento full stack, com foco atual em front-end. Adoro criar
+            interfaces intuitivas e performáticas, resolver problemas complexos
+            e otimizar processos por meio do código.
           </p>
           <p className="text-base font-medium text-light-text dark:text-dark-text">
             Minha trajetória começou em 2021 como desenvolvedor júnior, atuando
-            com Angular e .NET no desenvolvimento de novas features e correções
-            de bugs. Mais tarde, migrei para React e Next.js, trabalhando com
-            Python, API REST e MongoDB.
+            com Angular e .NET no desenvolvimento de novas funcionalidades e
+            correção de bugs. Sempre busquei explorar novas tecnologias,
+            passando por Python, Java com Spring Boot e NestJS, desenvolvendo
+            APIs REST e ampliando meus conhecimentos em back-end. Além disso,
+            trabalhei com diversos bancos de dados relacionais e não
+            relacionais, como SQL Server, MySQL, Oracle e MongoDB.
           </p>
           <p className="text-base font-medium text-light-text dark:text-dark-text">
-            Tenho experiência com diversas tecnologias, incluindo Python, React,
-            Angular, Java, SQL Server, MongoDB e Oracle. Além disso, conheço
-            metodologias ágeis como Kanban e Scrum.
+            Com o tempo, direcionei meu foco para tecnologias front-end,
+            especialmente React e Next.js, aprimorando habilidades em
+            performance, interfaces complexas e experiências intuitivas. Tenho
+            experiência também em metodologias ágeis, como Kanban e Scrum,
+            garantindo entregas mais organizadas e eficientes.
           </p>
           <p className="text-base font-medium text-light-text dark:text-dark-text">
-            Fora do trabalho, sou apaixonado por música e me perco em séries e
-            gosto de passar algumas horas jogando. 🚀
+            Fora do ambiente profissional, sou apaixonado por música, adoro
+            maratonar séries, passar tempo em ar livre, mas como sempre gosto de
+            passar algumas horas jogando. 🚀
           </p>
           <p>
             <b className="text-base font-medium text-light-text dark:text-dark-text">
