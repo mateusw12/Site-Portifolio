@@ -1,180 +1,192 @@
-import * as React from 'react';
-import * as LabelPrimitive from '@radix-ui/react-label';
-import { Slot } from '@radix-ui/react-slot';
+import * as React from "react";
+import { useSendEmail } from "@/hooks/mutations/use-send-email";
+import { useToast } from "@/hooks/use-toast";
+import { cn } from "@/lib/utils";
 import {
-  Controller,
-  ControllerProps,
-  FieldPath,
-  FieldValues,
-  FormProvider,
-  useFormContext,
-} from 'react-hook-form';
+  ContactFormSchema,
+  ContactFormValues,
+} from "@/pages/contact/contact-form-schema";
 
-import { cn } from '@/lib/utils';
-import { Label } from '@/components/ui/label';
+export function ContactForm() {
+  const { mutate, isPending } = useSendEmail();
+  const { toast } = useToast();
 
-const Form = FormProvider;
+  const [formLibs, setFormLibs] = React.useState<any>(null);
+  const [formMethods, setFormMethods] = React.useState<any>(null);
 
-type FormFieldContextValue<
-  TFieldValues extends FieldValues = FieldValues,
-  TName extends FieldPath<TFieldValues> = FieldPath<TFieldValues>
-> = {
-  name: TName;
-};
+  // Lazy load das libs pesadas
+  const loadLibs = async () => {
+    if (formLibs) return;
 
-const FormFieldContext = React.createContext<FormFieldContextValue>(
-  {} as FormFieldContextValue
-);
+    const [
+      rhf,
+      formModule,
+      inputModule,
+      textareaModule,
+      buttonModule,
+      labelModule,
+      slotModule,
+      zodModule,
+    ] = await Promise.all([
+      import("react-hook-form"),
+      import("@/components/ui/form"),
+      import("@/components/ui/input"),
+      import("@/components/ui/textarea"),
+      import("@/components/ui/button"),
+      import("@radix-ui/react-label"),
+      import("@radix-ui/react-slot"),
+      import("@hookform/resolvers/zod"),
+    ]);
 
-const FormField = <
-  TFieldValues extends FieldValues = FieldValues,
-  TName extends FieldPath<TFieldValues> = FieldPath<TFieldValues>
->({
-  ...props
-}: ControllerProps<TFieldValues, TName>) => {
-  return (
-    <FormFieldContext.Provider value={{ name: props.name }}>
-      <Controller {...props} />
-    </FormFieldContext.Provider>
-  );
-};
+    const form = rhf.useForm({
+      resolver: zodModule.zodResolver(ContactFormSchema),
+      defaultValues: { name: "", email: "", message: "" },
+    });
 
-const useFormField = () => {
-  const fieldContext = React.useContext(FormFieldContext);
-  const itemContext = React.useContext(FormItemContext);
-  const { getFieldState, formState } = useFormContext();
+    setFormLibs({
+      ...formModule,
+      Input: inputModule.Input,
+      Textarea: textareaModule.Textarea,
+      Button: buttonModule.Button,
+      LabelPrimitive: labelModule.Root,
+      Slot: slotModule.Slot,
+    });
 
-  const fieldState = getFieldState(fieldContext.name, formState);
-
-  if (!fieldContext) {
-    throw new Error('useFormField should be used within <FormField>');
-  }
-
-  const { id } = itemContext;
-
-  return {
-    id,
-    name: fieldContext.name,
-    formItemId: `${id}-form-item`,
-    formDescriptionId: `${id}-form-item-description`,
-    formMessageId: `${id}-form-item-message`,
-    ...fieldState,
+    setFormMethods(form);
   };
-};
 
-type FormItemContextValue = {
-  id: string;
-};
+  // Trigger lazy load ao interagir ou aparecer na viewport
+  const containerRef = React.useRef<HTMLDivElement>(null);
+  React.useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) loadLibs();
+      },
+      { threshold: 0.1 }
+    );
 
-const FormItemContext = React.createContext<FormItemContextValue>(
-  {} as FormItemContextValue
-);
+    if (containerRef.current) observer.observe(containerRef.current);
 
-const FormItem = React.forwardRef<
-  HTMLDivElement,
-  React.HTMLAttributes<HTMLDivElement>
->(({ className, ...props }, ref) => {
-  const id = React.useId();
+    return () => observer.disconnect();
+  }, []);
 
-  return (
-    <FormItemContext.Provider value={{ id }}>
-      <div ref={ref} className={cn('space-y-2', className)} {...props} />
-    </FormItemContext.Provider>
-  );
-});
-FormItem.displayName = 'FormItem';
+  if (!formLibs || !formMethods) {
+    return (
+      <div
+        ref={containerRef}
+        className="py-8 text-center"
+        onMouseEnter={loadLibs}
+        onTouchStart={loadLibs}
+      >
+        Carregando formulário...
+      </div>
+    );
+  }
 
-const FormLabel = React.forwardRef<
-  React.ElementRef<typeof LabelPrimitive.Root>,
-  React.ComponentPropsWithoutRef<typeof LabelPrimitive.Root>
->(({ className, ...props }, ref) => {
-  const { error, formItemId } = useFormField();
+  const {
+    Form,
+    FormField,
+    FormItem,
+    FormLabel,
+    FormControl,
+    FormMessage,
+    Input,
+    Textarea,
+    Button,
+  } = formLibs;
 
-  return (
-    <Label
-      ref={ref}
-      className={cn(error && 'text-red-600 dark:text-red-600', className)}
-      htmlFor={formItemId}
-      {...props}
-    />
-  );
-});
-FormLabel.displayName = 'FormLabel';
-
-const FormControl = React.forwardRef<
-  React.ElementRef<typeof Slot>,
-  React.ComponentPropsWithoutRef<typeof Slot>
->(({ ...props }, ref) => {
-  const { error, formItemId, formDescriptionId, formMessageId } =
-    useFormField();
-
-  return (
-    <Slot
-      ref={ref}
-      id={formItemId}
-      aria-describedby={
-        !error
-          ? `${formDescriptionId}`
-          : `${formDescriptionId} ${formMessageId}`
-      }
-      aria-invalid={!!error}
-      {...props}
-    />
-  );
-});
-FormControl.displayName = 'FormControl';
-
-const FormDescription = React.forwardRef<
-  HTMLParagraphElement,
-  React.HTMLAttributes<HTMLParagraphElement>
->(({ className, ...props }, ref) => {
-  const { formDescriptionId } = useFormField();
-
-  return (
-    <p
-      ref={ref}
-      id={formDescriptionId}
-      className={cn('text-[0.8rem] text-muted-foreground', className)}
-      {...props}
-    />
-  );
-});
-FormDescription.displayName = 'FormDescription';
-
-const FormMessage = React.forwardRef<
-  HTMLParagraphElement,
-  React.HTMLAttributes<HTMLParagraphElement>
->(({ className, children, ...props }, ref) => {
-  const { error, formMessageId } = useFormField();
-  const body = error ? String(error?.message) : children;
-
-  if (!body) {
-    return null;
+  function onSubmit(data: ContactFormValues) {
+    mutate(data, {
+      onSuccess: () => {
+        formMethods.reset();
+        toast({
+          title: "Sucesso!",
+          description: "Mensagem enviada com sucesso.",
+        });
+      },
+      onError: (error: Error) => {
+        formMethods.reset();
+        toast({
+          title: "Erro!",
+          description: `Falha ao enviar mensagem: ${error.message}`,
+          variant: "destructive",
+        });
+      },
+    });
   }
 
   return (
-    <p
-      ref={ref}
-      id={formMessageId}
-      className={cn(
-        'text-[0.8rem] font-medium text-red-600 dark:text-red-600',
-        className
-      )}
-      {...props}
-    >
-      {body}
-    </p>
+    <Form {...formMethods}>
+      <form onSubmit={formMethods.handleSubmit(onSubmit)} className="space-y-4">
+        <FormField
+          control={formMethods.control}
+          name="name"
+          render={({ field, fieldState }: any) => (
+            <FormItem>
+              <FormLabel>Nome</FormLabel>
+              <FormControl>
+                <Input
+                  placeholder="Digite seu nome"
+                  className={cn(
+                    fieldState.error && "border-red-600 dark:border-red-600"
+                  )}
+                  {...field}
+                />
+              </FormControl>
+              <FormMessage />
+            </FormItem>
+          )}
+        />
+        <FormField
+          control={formMethods.control}
+          name="email"
+          render={({ field, fieldState }: any) => (
+            <FormItem>
+              <FormLabel>Email</FormLabel>
+              <FormControl>
+                <Input
+                  type="email"
+                  placeholder="Digite seu email"
+                  className={cn(
+                    fieldState.error && "border-red-600 dark:border-red-600"
+                  )}
+                  {...field}
+                />
+              </FormControl>
+              <FormMessage />
+            </FormItem>
+          )}
+        />
+        <FormField
+          control={formMethods.control}
+          name="message"
+          render={({ field, fieldState }: any) => (
+            <FormItem>
+              <FormLabel>Mensagem</FormLabel>
+              <FormControl>
+                <Textarea
+                  placeholder="Digite sua mensagem..."
+                  className={cn(
+                    "resize-none h-32",
+                    fieldState.error && "border-red-600 dark:border-red-600"
+                  )}
+                  {...field}
+                />
+              </FormControl>
+              <FormMessage />
+            </FormItem>
+          )}
+        />
+        <div className="flex justify-center">
+          <Button
+            type="submit"
+            disabled={isPending}
+            aria-label="Enviar Contato"
+          >
+            {isPending ? "enviando..." : "enviar"}
+          </Button>
+        </div>
+      </form>
+    </Form>
   );
-});
-FormMessage.displayName = 'FormMessage';
-
-export {
-  useFormField,
-  Form,
-  FormItem,
-  FormLabel,
-  FormControl,
-  FormDescription,
-  FormMessage,
-  FormField,
-};
+}

@@ -1,49 +1,111 @@
-import {
-  Form,
-  FormControl,
-  FormField,
-  FormItem,
-  FormLabel,
-  FormMessage,
-} from '@/components/ui/form';
-import { Input } from '@/components/ui/input';
-import { Textarea } from '@/components/ui/textarea';
-import { zodResolver } from '@hookform/resolvers/zod';
-import { useForm } from 'react-hook-form';
-
-import { Button } from '@/components/ui/button';
-import { ContactFormSchema, ContactFormValues } from './contact-form-schema';
-import { useSendEmail } from '@/hooks/mutations/use-send-email';
-import { useToast } from '@/hooks/use-toast';
+import { useState, useEffect } from "react";
+import { useSendEmail } from "@/hooks/mutations/use-send-email";
+import { useToast } from "@/hooks/use-toast";
+import { ContactFormSchema, ContactFormValues } from "./contact-form-schema";
+import type { ControllerRenderProps, ControllerFieldState } from "react-hook-form";
 
 export function ContactForm() {
   const { mutate, isPending } = useSendEmail();
   const { toast } = useToast();
 
-  const form = useForm({
-    resolver: zodResolver(ContactFormSchema),
+  // Lazy-load das libs do formulário
+  const [formLibs, setFormLibs] = useState<{
+    Form?: any;
+    FormControl?: any;
+    FormField?: any;
+    FormItem?: any;
+    FormLabel?: any;
+    FormMessage?: any;
+    Input?: any;
+    Textarea?: any;
+    useForm?: any;
+    zodResolver?: any;
+    Button?: any;
+  }>({});
+
+  const loadLibs = async () => {
+    if (formLibs.Form) return; // libs já carregadas
+
+    const [
+      formModule,
+      inputModule,
+      textareaModule,
+      zodModule,
+      buttonModule,
+    ] = await Promise.all([
+      import("@/components/ui/form"),
+      import("@/components/ui/input"),
+      import("@/components/ui/textarea"),
+      import("@hookform/resolvers/zod"),
+      import("@/components/ui/button"),
+    ]);
+
+    const rhf = await import("react-hook-form");
+
+    setFormLibs({
+      ...formModule,
+      ...inputModule,
+      ...textareaModule,
+      zodResolver: zodModule.zodResolver,
+      useForm: rhf.useForm,
+      Button: buttonModule.Button,
+    });
+  };
+
+  // Cria o form usando lazy libs
+  const form = formLibs.useForm?.({
+    resolver: formLibs.zodResolver(ContactFormSchema),
     defaultValues: {
-      name: '',
-      email: '',
-      message: '',
+      name: "",
+      email: "",
+      message: "",
     },
   });
+
+  // Trigger para carregar libs quando usuário interage
+  useEffect(() => {
+    if (!formLibs.Form) loadLibs();
+  }, []);
+
+  if (!formLibs.Form || !form) {
+    return (
+      <div
+        onMouseEnter={loadLibs}
+        onTouchStart={loadLibs}
+        className="py-8 text-center"
+      >
+        Carregando formulário...
+      </div>
+    );
+  }
+
+  const {
+    Form,
+    FormControl,
+    FormField,
+    FormItem,
+    FormLabel,
+    FormMessage,
+    Input,
+    Textarea,
+    Button,
+  } = formLibs;
 
   function onSubmit(data: ContactFormValues) {
     mutate(data, {
       onSuccess: () => {
         form.reset();
         toast({
-          title: 'Sucesso!',
-          description: 'Mensagem enviada com sucesso.',
+          title: "Sucesso!",
+          description: "Mensagem enviada com sucesso.",
         });
       },
       onError: (error: Error) => {
         form.reset();
         toast({
-          title: 'Erro!',
+          title: "Erro!",
           description: `Falha ao enviar mensagem: ${error.message}.`,
-          variant: 'destructive',
+          variant: "destructive",
         });
       },
     });
@@ -52,18 +114,23 @@ export function ContactForm() {
   return (
     <Form {...form}>
       <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
+        {/* Nome */}
         <FormField
           control={form.control}
           name="name"
-          render={({ field, fieldState }) => (
+          render={({
+            field,
+            fieldState,
+          }: {
+            field: ControllerRenderProps<ContactFormValues, "name">;
+            fieldState: ControllerFieldState;
+          }) => (
             <FormItem>
               <FormLabel>Nome</FormLabel>
               <FormControl>
                 <Input
                   placeholder="Digite seu nome"
-                  className={
-                    fieldState.error ? 'border-red-600 dark:border-red-600' : ''
-                  }
+                  className={fieldState.error ? "border-red-600 dark:border-red-600" : ""}
                   {...field}
                 />
               </FormControl>
@@ -72,19 +139,24 @@ export function ContactForm() {
           )}
         />
 
+        {/* Email */}
         <FormField
           control={form.control}
           name="email"
-          render={({ field, fieldState }) => (
+          render={({
+            field,
+            fieldState,
+          }: {
+            field: ControllerRenderProps<ContactFormValues, "email">;
+            fieldState: ControllerFieldState;
+          }) => (
             <FormItem>
               <FormLabel>Email</FormLabel>
               <FormControl>
                 <Input
                   type="email"
                   placeholder="Digite seu email"
-                  className={
-                    fieldState.error ? 'border-red-600 dark:border-red-600' : ''
-                  }
+                  className={fieldState.error ? "border-red-600 dark:border-red-600" : ""}
                   {...field}
                 />
               </FormControl>
@@ -93,17 +165,24 @@ export function ContactForm() {
           )}
         />
 
+        {/* Mensagem */}
         <FormField
           control={form.control}
           name="message"
-          render={({ field, fieldState }) => (
+          render={({
+            field,
+            fieldState,
+          }: {
+            field: ControllerRenderProps<ContactFormValues, "message">;
+            fieldState: ControllerFieldState;
+          }) => (
             <FormItem>
               <FormLabel>Mensagem</FormLabel>
               <FormControl>
                 <Textarea
                   placeholder="Digite sua mensagem..."
                   className={`resize-none h-32 ${
-                    fieldState.error ? 'border-red-600 dark:border-red-600' : ''
+                    fieldState.error ? "border-red-600 dark:border-red-600" : ""
                   }`}
                   {...field}
                 />
@@ -112,9 +191,10 @@ export function ContactForm() {
             </FormItem>
           )}
         />
+
         <div className="flex justify-center">
-          <Button aria-label='Enviar Contato' type="submit" disabled={isPending}>
-            {isPending ? 'enviando..' : 'enviar'}
+          <Button aria-label="Enviar Contato" type="submit" disabled={isPending}>
+            {isPending ? "enviando..." : "enviar"}
           </Button>
         </div>
       </form>
