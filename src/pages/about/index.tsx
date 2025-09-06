@@ -28,7 +28,7 @@ export default function About() {
             className="w-32 h-32 sm:w-40 sm:h-40 md:w-48 md:h-48 lg:w-60 lg:h-60 rounded-full border-2 shadow-md border-light-secondary dark:border-dark-secondary"
           />
           <div ref={ref}>
-            <pre className="font-mono text-base font-medium min-w-[30ch] min-h-[12rem] overflow-hidden">
+            <pre className="font-mono text-base font-medium text-light-text dark:text-dark-text min-w-[17rem] min-h-[12rem] text-left">
               <code>{typedText}</code>
             </pre>
           </div>
@@ -57,7 +57,7 @@ export default function About() {
             gosto de passar algumas horas jogando. 🚀
           </p>
           <p>
-            <b>
+            <b className="text-base font-medium text-light-text dark:text-dark-text">
               "Vencedores não dão desculpas quando o outro lado joga o jogo." –
               Suits
             </b>

@@ -18,22 +18,22 @@ export default {
       },
       colors: {
         light: {
-          background: '#DDDDF5',
-          surface: '#C3C3E6',
-          accent: '#cecef3',
-          primary: '#170A33',
-          secondary: '#4C5095',
-          highlight: '#27272E',
-          text: '#38383F',
+          background: '#F5F5FA', // mais claro e neutro
+          surface: '#E4E4F1',    // leve contraste com o fundo
+          accent: '#D0D0F3',
+          primary: '#1B0E3B',   // escuro para bom contraste
+          secondary: '#5A5FA5',
+          highlight: '#2F2F36',
+          text: '#2C2C35',      // texto mais escuro para melhor legibilidade
         },
         dark: {
-          background: '#18181B',
-          surface: '#27272e',
-          accent: '#3d3d49',
+          background: '#121212', // escuro neutro
+          surface: '#1E1E24',    // leve contraste
+          accent: '#3D3D49',
           primary: '#918CFF',
           secondary: '#C0C3FD',
           highlight: '#E3E3FF',
-          text: '#B0B0D0',
+          text: '#D0D0E0',       // contraste suficiente
         },
       },
       keyframes: {
