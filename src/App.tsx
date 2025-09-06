@@ -6,6 +6,7 @@ import { Toaster } from "./components/ui/toaster";
 
 import { PROJECTS } from "./constants/projects";
 import { SKILLS } from "./constants/skills";
+import { LazySection } from "./components/lazy-on-view";
 
 // Componentes carregados sob demanda
 const About = lazy(() => import("./pages/about"));
@@ -25,12 +26,12 @@ function App() {
         <Home />
 
         <Suspense fallback={<div>Carregando...</div>}>
-          <About />
-          <Projects projects={PROJECTS} />
-          <SkillsGrid skills={SKILLS} />
-          <Contact />
-          <Footer />
-          <Socials />
+          <LazySection Component={About} />
+          <LazySection Component={Projects} props={{ projects: PROJECTS }} />
+          <LazySection Component={SkillsGrid} props={{ skills: SKILLS }} />
+          <LazySection Component={Contact} />
+          <LazySection Component={Footer} />
+          <LazySection Component={Socials} />
         </Suspense>
 
         <Toaster />
