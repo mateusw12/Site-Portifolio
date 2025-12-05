@@ -4,21 +4,27 @@ export const PROJECTS: IProject[] = [
   {
     title: "Escala Materiais Elétricos",
     description: "E-commerce com produtos de material elétrico.",
-    stacks: ["Next.js 15"],
+    stacks: ["Next.js"],
     repo: "https://github.com/Julialauries01/escalamateriaiseletricos",
     link: "https://escalamateriaiseletricos.vercel.app/home/",
+  },
+    {
+    title: "Pro Sigma",
+    description: "Sistema completo de análise de dados para metodologia Six Sigma. ",
+    stacks: ["Next.js", "Python"],
+    repo: "https://github.com/mateusw12/pro-sigma",
   },
   {
     title: "Chat App",
     description: "Aplicação de chat em tempo real com autenticação via Github.",
-    stacks: ["Next.js 15", "Supabase", "Zustand", "Tailwind CSS"],
+    stacks: ["Next.js", "Supabase", "Zustand", "Tailwind CSS"],
     repo: "https://github.com/mateusw12/chat-app",
   },
   {
     title: "MET Museum",
     description:
       "Projeto experimental desenvolvido para estudo e prática de Next.js 13+, integrando a API pública do The Metropolitan Museum of Art.",
-    stacks: ["Next.js 15", "Tailwind CSS", "API REST"],
+    stacks: ["Next.js", "Tailwind CSS", "API REST"],
     repo: "https://github.com/mateusw12/met-museum",
   },
   {
