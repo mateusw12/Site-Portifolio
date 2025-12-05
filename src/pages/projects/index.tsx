@@ -1,4 +1,4 @@
-import { FaGithub } from "react-icons/fa";
+import { FaGithub, FaExternalLinkAlt } from "react-icons/fa";
 import { Pagination } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/swiper-bundle.css";
@@ -46,6 +46,16 @@ export default function Projects({ projects }: ProjectsProps) {
                     >
                       <FaGithub /> Repositório
                     </a>
+                    {project.link && (
+                      <a
+                        href={project.link}
+                        target="_blank"
+                        rel="noreferrer"
+                        className="flex items-center gap-1 hover:underline"
+                      >
+                        <FaExternalLinkAlt /> Ver projeto
+                      </a>
+                    )}
                   </div>
 
                   <p className="flex-1 text-sm text-light-text dark:text-dark-text">

@@ -2,6 +2,13 @@ import { IProject } from "./interface";
 
 export const PROJECTS: IProject[] = [
   {
+    title: "Escala Materiais Elétricos",
+    description: "E-commerce com produtos de material elétrico.",
+    stacks: ["Next.js 15"],
+    repo: "https://github.com/Julialauries01/escalamateriaiseletricos",
+    link: "https://escalamateriaiseletricos.vercel.app/home/",
+  },
+  {
     title: "Chat App",
     description: "Aplicação de chat em tempo real com autenticação via Github.",
     stacks: ["Next.js 15", "Supabase", "Zustand", "Tailwind CSS"],
@@ -16,8 +23,7 @@ export const PROJECTS: IProject[] = [
   },
   {
     title: "Youtube Clone",
-    description:
-      "Projeto clone do youtube feito com React puro.",
+    description: "Projeto clone do youtube feito com React puro.",
     stacks: ["React", "TypeScript"],
     repo: "https://github.com/mateusw12/Youtube-Clone",
   },

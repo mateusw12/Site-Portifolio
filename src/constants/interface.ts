@@ -16,4 +16,5 @@ export interface IProject {
   description: string;
   stacks: string[];
   repo: string;
+  link?: string;
 }
