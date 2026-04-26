@@ -5,8 +5,8 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        sans: ["Karla", "sans-serif"],
-        mono: ["IBM Plex Mono", "mono"],
+        sans: ["Sora", "sans-serif"],
+        mono: ["JetBrains Mono", "monospace"],
       },
       fontSize: {
         subtitle: [
@@ -18,24 +18,24 @@ export default {
       },
       colors: {
         light: {
-          background: "#F5F5F5",
-          inputBackground: "#ECECEC", // cinza claro
-          surface: "#EAEAEA",
-          accent: "#B0B0B0", // cinza médio
-          primary: "#1A1A1A",
-          secondary: "#555555",
-          highlight: "#7A7A7A", // cinza escuro
-          text: "#222222",
+          background: "#F6F7F9",
+          inputBackground: "#FFFFFF",
+          surface: "#FFFFFF",
+          accent: "#D7DEE7",
+          primary: "#0C1B33",
+          secondary: "#1D4ED8",
+          highlight: "#3B82F6",
+          text: "#213047",
         },
         dark: {
-          background: "#121212",
-          inputBackground: "#1F1F1F",
-          surface: "#1E1E1E",
-          accent: "#00C853",
-          primary: "#FFFFFF",
-          secondary: "#AAAAAA",
-          highlight: "#1E88E5",
-          text: "#D0D0D0",
+          background: "#0B1220",
+          inputBackground: "#111B2E",
+          surface: "#111B2E",
+          accent: "#1E3355",
+          primary: "#E2E8F0",
+          secondary: "#60A5FA",
+          highlight: "#93C5FD",
+          text: "#C7D2E6",
         },
       },
 
@@ -48,10 +48,26 @@ export default {
           "0%": { opacity: 0, transform: "translateY(-50px)" },
           "100%": { opacity: 1, transform: "translateY(0)" },
         },
+        "fade-in": {
+          "0%": { opacity: 0 },
+          "100%": { opacity: 1 },
+        },
+        float: {
+          "0%, 100%": { transform: "translateY(0px)" },
+          "50%": { transform: "translateY(-8px)" },
+        },
+        "gradient-shift": {
+          "0%": { backgroundPosition: "0% 50%" },
+          "50%": { backgroundPosition: "100% 50%" },
+          "100%": { backgroundPosition: "0% 50%" },
+        },
       },
       animation: {
         "slide-up": "slide-up 2s ease-out",
         "fade-in-up": "fade-in-up 2s ease-out forwards",
+        "fade-in": "fade-in 0.9s ease-out forwards",
+        float: "float 4s ease-in-out infinite",
+        "gradient-shift": "gradient-shift 10s ease infinite",
       },
     },
   },

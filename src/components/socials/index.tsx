@@ -4,16 +4,17 @@ import { SOCIALS } from "@/constants/socials";
 export default function Socials() {
   return (
     <>
-      <div className="fixed bottom-20 left-10 flex-col gap-2 hidden md:flex z-50">
+      <div className="fixed bottom-20 left-8 flex-col gap-3 hidden md:flex z-40">
         {SOCIALS.map((item) => (
           <SocialLink
+            key={item.label}
             href={item.href}
             icon={<item.icon />}
             label={item.label}
           />
         ))}
       </div>
-      <div className="fixed bottom-0 left-[3.8rem] h-[4.5rem] border-l-2 rounded-sm border-light-secondary dark:border-dark-primary mt-2 hidden md:block"></div>
+      <div className="fixed bottom-0 left-[3.35rem] h-[5rem] border-l rounded-sm border-light-accent dark:border-dark-accent mt-2 hidden md:block" />
     </>
   );
 }

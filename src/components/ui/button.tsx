@@ -5,23 +5,23 @@ import { cva, type VariantProps } from 'class-variance-authority';
 import { cn } from '@/lib/utils';
 
 const buttonVariants = cva(
-  'inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0',
+  'inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-lg font-semibold transition-all duration-300 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0',
   {
     variants: {
       variant: {
         default:
-          'bg-light-secondary text-mono text-light-accent dark:text-dark-surface dark:bg-dark-primary hover:bg-light-secondary/90 dark:hover:bg-dark-primary/90',
+          'bg-light-secondary text-white dark:text-dark-background dark:bg-dark-secondary hover:brightness-110 shadow-[0_12px_26px_-16px_rgba(29,78,216,0.8)]',
         destructive: 'bg-red-600 text-white shadow-sm hover:bg-red-600/90',
         outline:
-          'bg-transparent border-2 rounded text-mono border-light-primary text-light-primary dark:border-dark-secondary dark:text-dark-secondary hover:bg-light-primary hover:text-light-background transition-colors duration-300 dark:hover:bg-dark-secondary dark:hover:text-dark-background',
+          'bg-transparent border border-light-accent text-light-primary dark:border-dark-accent dark:text-dark-primary hover:bg-light-surface dark:hover:bg-dark-surface',
         ghost:
-          'text-light-primary dark:text-dark-secondary hover:text-accent-foreground',
-        link: 'font-bold text-light-secondary dark:text-dark-primary hover:text-light-primary dark:hover:text-dark-secondary underline-offset-4 hover:underline',
+          'text-light-primary dark:text-dark-primary hover:bg-light-surface dark:hover:bg-dark-surface',
+        link: 'font-semibold text-light-secondary dark:text-dark-secondary hover:text-light-primary dark:hover:text-dark-primary px-3',
       },
       size: {
-        default: 'h-12 px-4 py-2 text-xl min-w-40',
-        md: 'h-8 px-4 py-2',
-        sm: 'h-8 px-3 text-xs',
+        default: 'h-12 px-5 py-2 text-base min-w-40',
+        md: 'h-9 px-4 py-2 text-sm',
+        sm: 'h-8 px-3 text-sm',
         lg: 'h-10 px-8',
         icon: 'h-9 w-9',
       },

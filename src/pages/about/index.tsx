@@ -18,55 +18,43 @@ export default function About() {
   const typedText = useTypingEffect(fullProfile, 20, inView);
 
   return (
-    <Layout subtitle="<!-- sobre mim -->" id="about">
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-8 py-8 max-w-6xl">
-        <div className="flex items-center flex-col gap-6">
+    <Layout subtitle="<!-- sobre -->" id="about">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 py-4 max-w-6xl mx-auto">
+        <div className="flex items-center flex-col gap-6 lg:border-r border-light-accent dark:border-dark-accent lg:pr-8">
           <img
             src="icon-profile.webp"
             alt="Profile"
             width={240}
             height={240}
-            className="w-32 h-32 sm:w-40 sm:h-40 md:w-48 md:h-48 lg:w-60 lg:h-60 rounded-full border-2 shadow-md border-light-secondary dark:border-dark-secondary"
+            className="w-32 h-32 sm:w-40 sm:h-40 md:w-48 md:h-48 lg:w-56 lg:h-56 rounded-full border-4 shadow-xl border-light-secondary/40 dark:border-dark-secondary/40 object-cover"
           />
-          <div ref={ref}>
-            <pre className="font-mono text-base font-medium text-light-text dark:text-dark-text min-w-[17rem] min-h-[12rem] text-left">
+          <div ref={ref} className="w-full max-w-md rounded-xl border border-light-accent dark:border-dark-accent bg-light-inputBackground/80 dark:bg-dark-inputBackground/80 p-4">
+            <pre className="font-mono text-sm md:text-base font-medium text-light-text dark:text-dark-text min-w-[17rem] min-h-[12rem] text-left whitespace-pre-wrap">
               <code>{typedText}</code>
             </pre>
           </div>
         </div>
 
         <div className="flex flex-col gap-4 justify-center">
-          <p className="text-base font-medium text-light-text dark:text-dark-text">
-            Sou engenheiro de software apaixonado por tecnologia e
-            desenvolvimento full stack, com foco atual em front-end. Adoro criar
-            interfaces intuitivas e performáticas, resolver problemas complexos
-            e otimizar processos por meio do código.
+          <h3 className="section-title">Perfil profissional</h3>
+          <p className="text-base md:text-lg font-medium text-light-text dark:text-dark-text leading-relaxed">
+            Atuo como engenheiro de software full stack, com foco em front-end moderno e produtos digitais orientados a resultado.
+            Minha prioridade e construir interfaces intuitivas, acessiveis e de alta performance.
           </p>
-          <p className="text-base font-medium text-light-text dark:text-dark-text">
-            Minha trajetória começou em 2021 como desenvolvedor júnior, atuando
-            com Angular e .NET no desenvolvimento de novas funcionalidades e
-            correção de bugs. Sempre busquei explorar novas tecnologias,
-            passando por Python, Java com Spring Boot e NestJS, desenvolvendo
-            APIs REST e ampliando meus conhecimentos em back-end. Além disso,
-            trabalhei com diversos bancos de dados relacionais e não
-            relacionais, como SQL Server, MySQL, Oracle e MongoDB.
+          <p className="text-base md:text-lg font-medium text-light-text dark:text-dark-text leading-relaxed">
+            Desde 2021, participei de projetos com Angular, .NET, Java, Spring Boot, NestJS e Python,
+            criando novas funcionalidades, evoluindo APIs REST e melhorando arquitetura de sistemas.
           </p>
-          <p className="text-base font-medium text-light-text dark:text-dark-text">
-            Com o tempo, direcionei meu foco para tecnologias front-end,
-            especialmente React e Next.js, aprimorando habilidades em
-            performance, interfaces complexas e experiências intuitivas. Tenho
-            experiência também em metodologias ágeis, como Kanban e Scrum,
-            garantindo entregas mais organizadas e eficientes.
+          <p className="text-base md:text-lg font-medium text-light-text dark:text-dark-text leading-relaxed">
+            Nos ultimos anos, aprofundei especializacao em React e Next.js, liderando solucoes de interface,
+            refinando experiencia do usuario e colaborando em squads ageis com foco em entrega continua.
           </p>
-          <p className="text-base font-medium text-light-text dark:text-dark-text">
-            Fora do ambiente profissional, sou apaixonado por música, adoro
-            maratonar séries, passar tempo em ar livre, mas como sempre gosto de
-            passar algumas horas jogando. 🚀
+          <p className="text-base md:text-lg font-medium text-light-text dark:text-dark-text leading-relaxed">
+            Tambem trago repertorio com bancos de dados SQL e NoSQL, garantindo solucoes completas do front ao back.
           </p>
-          <p>
-            <b className="text-base font-medium text-light-text dark:text-dark-text">
-              "Vencedores não dão desculpas quando o outro lado joga o jogo." –
-              Suits
+          <p className="rounded-lg border border-light-accent/80 dark:border-dark-accent px-4 py-3 bg-light-inputBackground/70 dark:bg-dark-inputBackground/60">
+            <b className="text-base font-medium text-light-primary dark:text-dark-primary">
+              "Disciplina vence talento quando talento nao tem consistencia."
             </b>
           </p>
         </div>

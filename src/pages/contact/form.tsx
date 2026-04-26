@@ -51,7 +51,7 @@ export function ContactForm() {
 
   return (
     <Form {...form}>
-      <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
+      <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-5">
         <FormField
           control={form.control}
           name="name"
@@ -112,9 +112,9 @@ export function ContactForm() {
             </FormItem>
           )}
         />
-        <div className="flex justify-center">
-          <Button aria-label='Enviar Contato' type="submit" disabled={isPending}>
-            {isPending ? 'enviando..' : 'enviar'}
+        <div className="flex justify-center pt-2">
+          <Button aria-label='Enviar Contato' type="submit" disabled={isPending} className="w-full md:w-auto">
+            {isPending ? 'Enviando...' : 'Enviar mensagem'}
           </Button>
         </div>
       </form>

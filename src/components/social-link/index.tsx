@@ -14,13 +14,13 @@ export function SocialLink({
   variant = 'primary',
 }: SocialLinkProps) {
   const baseStyles =
-    'rounded-full text-2xl p-2 shadow-md transition-colors duration-300';
+    'rounded-full text-2xl p-2.5 border shadow-md transition-all duration-300';
 
   const variantStyles = {
     primary:
-      'text-light-secondary border-2 border-light-secondary hover:text-light-surface hover:bg-light-secondary dark:bg-dark-surface dark:text-dark-primary dark:border-dark-primary dark:hover:text-dark-surface dark:hover:bg-dark-primary',
+      'text-light-secondary border-light-accent bg-light-surface/80 hover:text-white hover:bg-light-secondary hover:border-light-secondary dark:bg-dark-surface dark:text-dark-secondary dark:border-dark-accent dark:hover:text-dark-background dark:hover:bg-dark-secondary dark:hover:border-dark-secondary',
     secondary:
-      'rounded-full bg-light-inputBackground dark:bg-dark-inputBackground text-light-secondary dark:text-dark-primary hover:bg-light-secondary dark:hover:bg-dark-primary hover:text-light-accent dark:hover:text-dark-accent',
+      'bg-light-inputBackground dark:bg-dark-inputBackground border-light-accent dark:border-dark-accent text-light-secondary dark:text-dark-secondary hover:bg-light-secondary dark:hover:bg-dark-secondary hover:text-white dark:hover:text-dark-background',
   };
 
   return (

@@ -25,7 +25,13 @@ function App() {
         <Navbar />
         <Home id="home" />
 
-        <Suspense fallback={<div>Carregando...</div>}>
+        <Suspense
+          fallback={
+            <div className="py-10 text-center text-light-secondary dark:text-dark-secondary">
+              Carregando sessoes...
+            </div>
+          }
+        >
           <LazySection Component={About} />
           <LazySection Component={Projects} props={{ projects: PROJECTS }} />
           <LazySection Component={SkillsGrid} props={{ skills: SKILLS }} />

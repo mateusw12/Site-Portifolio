@@ -10,13 +10,13 @@ export function Layout({
   id: string;
 }) {
   return (
-    <div id={id} className="bg-light-background dark:bg-dark-background">
-      <div className="container mx-auto h-full flex flex-col justify-center items-center pt-[5rem] pb-4 px-4">
-        <h2 className="text-subtitle font-mono text-center text-light-primary dark:text-dark-secondary">
+    <section id={id} className="py-14 md:py-20">
+      <div className="container mx-auto h-full flex flex-col justify-center items-center px-4">
+        <h2 className="text-subtitle font-mono text-center text-light-secondary dark:text-dark-secondary tracking-tight mb-5">
           <code>{subtitle}</code>
         </h2>
-        {children}
+        <div className="section-shell w-full p-6 md:p-10">{children}</div>
       </div>
-    </div>
+    </section>
   );
 }
