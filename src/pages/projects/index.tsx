@@ -16,7 +16,8 @@ export default function Projects({ projects }: ProjectsProps) {
         <div className="mb-8 max-w-2xl">
           <h3 className="section-title mb-2">Projetos selecionados</h3>
           <p className="text-light-text dark:text-dark-text">
-            Aplicacoes desenvolvidas com foco em qualidade de codigo, experiencia do usuario e impacto real de negocio.
+            Casos praticos que evidenciam minha capacidade de transformar requisitos em produtos digitais,
+            com foco em qualidade de engenharia, experiencia do usuario e consistencia de entrega.
           </p>
         </div>
 

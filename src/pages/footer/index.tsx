@@ -19,7 +19,8 @@ export default function Footer() {
           </div>
 
           <p className="text-sm text-center text-light-text dark:text-dark-text">
-            Construido com React, TypeScript e foco em experiencia profissional para recrutadores e empresas.
+            Portfolio profissional desenvolvido com foco em clareza tecnica,
+            posicionamento de carreira e comunicacao com recrutadores.
           </p>
 
           <p className="text-sm font-medium text-light-secondary dark:text-dark-secondary">

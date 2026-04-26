@@ -3,11 +3,6 @@
 @tailwind components;
 
 @layer base {
-  :root {
-    --hero-glow: rgba(37, 99, 235, 0.25);
-    --hero-glow-soft: rgba(30, 64, 175, 0.12);
-  }
-
   html {
     scroll-behavior: smooth;
   }
@@ -15,17 +10,19 @@
   body {
     @apply font-sans text-light-text dark:text-dark-text bg-light-background dark:bg-dark-background antialiased;
     background-image:
-      radial-gradient(circle at 12% 18%, var(--hero-glow) 0, transparent 30%),
-      radial-gradient(circle at 88% 6%, var(--hero-glow-soft) 0, transparent 26%),
-      linear-gradient(180deg, rgba(255, 255, 255, 0.58) 0%, rgba(246, 247, 249, 0.96) 28%, rgba(246, 247, 249, 1) 100%);
+      linear-gradient(180deg, rgba(255, 255, 255, 0.88) 0%, rgba(246, 247, 249, 1) 36%, rgba(246, 247, 249, 1) 100%),
+      linear-gradient(90deg, rgba(29, 78, 216, 0.06) 1px, transparent 1px),
+      linear-gradient(180deg, rgba(29, 78, 216, 0.05) 1px, transparent 1px);
+    background-size: auto, 44px 44px, 44px 44px;
     background-attachment: fixed;
   }
 
   .dark body {
     background-image:
-      radial-gradient(circle at 8% 8%, rgba(59, 130, 246, 0.22) 0, transparent 26%),
-      radial-gradient(circle at 92% 10%, rgba(37, 99, 235, 0.14) 0, transparent 22%),
-      linear-gradient(180deg, rgba(10, 15, 28, 0.9) 0%, rgba(11, 18, 32, 1) 26%, rgba(11, 18, 32, 1) 100%);
+      linear-gradient(180deg, rgba(10, 15, 28, 0.98) 0%, rgba(11, 18, 32, 1) 40%, rgba(11, 18, 32, 1) 100%),
+      linear-gradient(90deg, rgba(96, 165, 250, 0.08) 1px, transparent 1px),
+      linear-gradient(180deg, rgba(96, 165, 250, 0.06) 1px, transparent 1px);
+    background-size: auto, 44px 44px, 44px 44px;
   }
 }
 
@@ -49,7 +46,7 @@
 
 @layer components {
   .section-shell {
-    @apply bg-light-surface/80 dark:bg-dark-surface/70 border border-light-accent/70 dark:border-dark-accent/80 rounded-2xl shadow-[0_20px_50px_-28px_rgba(12,27,51,0.38)] backdrop-blur-sm;
+    @apply bg-light-surface/90 dark:bg-dark-surface/80 border border-light-accent/80 dark:border-dark-accent/90 rounded-2xl shadow-[0_16px_38px_-24px_rgba(12,27,51,0.35)] backdrop-blur-sm;
   }
 
   .section-title {

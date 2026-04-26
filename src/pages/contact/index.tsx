@@ -14,10 +14,11 @@ export default function Contact() {
           </div>
           <div className="w-full py-10 md:py-12 px-6 md:px-8">
             <h2 className="text-2xl md:text-3xl font-bold text-center text-light-primary dark:text-dark-primary mb-3">
-              Vamos conversar sobre sua proxima vaga?
+              Vamos falar sobre desafios, projetos e oportunidades?
             </h2>
             <p className="text-center text-light-text dark:text-dark-text mb-7">
-              Envie uma mensagem e retorno em breve com disponibilidade, portfolio e detalhes tecnicos.
+              Estou disponivel para conversar sobre posicoes em engenharia de software,
+              escopo tecnico da vaga e como posso contribuir com seu time.
             </p>
             <ContactForm />
           </div>

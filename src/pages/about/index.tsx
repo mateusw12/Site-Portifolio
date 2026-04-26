@@ -5,10 +5,10 @@ import { useTypingEffect } from "@/hooks/use-typing-effect";
 const fullProfile = `
 const perfil = {
   nome: 'Mateus Walz',
-  idade: 25,
   local: 'Jaraguá do Sul - SC',
   graduacao: 'Engenharia de Software - Univille',
-  area: 'Full Stack',
+  area: 'Full Stack | Front-end',
+  foco: 'Qualidade tecnica + performance + produto',
 };
 `;
 
@@ -38,23 +38,25 @@ export default function About() {
         <div className="flex flex-col gap-4 justify-center">
           <h3 className="section-title">Perfil profissional</h3>
           <p className="text-base md:text-lg font-medium text-light-text dark:text-dark-text leading-relaxed">
-            Atuo como engenheiro de software full stack, com foco em front-end moderno e produtos digitais orientados a resultado.
-            Minha prioridade e construir interfaces intuitivas, acessiveis e de alta performance.
+            Engenheiro de Software com experiencia em todo o ciclo de desenvolvimento,
+            da descoberta da demanda ate a entrega e sustentacao da solucao em producao.
           </p>
           <p className="text-base md:text-lg font-medium text-light-text dark:text-dark-text leading-relaxed">
-            Desde 2021, participei de projetos com Angular, .NET, Java, Spring Boot, NestJS e Python,
-            criando novas funcionalidades, evoluindo APIs REST e melhorando arquitetura de sistemas.
+            Tenho atuacao em projetos com React, Next.js, Angular, .NET, Java e NestJS,
+            desenvolvendo interfaces complexas, APIs REST e integracoes orientadas a confiabilidade e escalabilidade.
           </p>
           <p className="text-base md:text-lg font-medium text-light-text dark:text-dark-text leading-relaxed">
-            Nos ultimos anos, aprofundei especializacao em React e Next.js, liderando solucoes de interface,
-            refinando experiencia do usuario e colaborando em squads ageis com foco em entrega continua.
+            Em times ageis, colaboro com design, produto e engenharia para priorizar entregas,
+            reduzir retrabalho e elevar o padrao tecnico das implementacoes.
           </p>
-          <p className="text-base md:text-lg font-medium text-light-text dark:text-dark-text leading-relaxed">
-            Tambem trago repertorio com bancos de dados SQL e NoSQL, garantindo solucoes completas do front ao back.
-          </p>
+          <div className="rounded-lg border border-light-accent/80 dark:border-dark-accent px-4 py-4 bg-light-inputBackground/70 dark:bg-dark-inputBackground/60 space-y-2">
+            <p className="text-sm font-semibold uppercase tracking-wider text-light-secondary dark:text-dark-secondary">Diferenciais</p>
+            <p className="text-base text-light-text dark:text-dark-text">Arquitetura de front-end, performance, acessibilidade e boas praticas de codigo.</p>
+            <p className="text-base text-light-text dark:text-dark-text">Comunicacao clara com stakeholders e foco continuo em impacto de negocio.</p>
+          </div>
           <p className="rounded-lg border border-light-accent/80 dark:border-dark-accent px-4 py-3 bg-light-inputBackground/70 dark:bg-dark-inputBackground/60">
             <b className="text-base font-medium text-light-primary dark:text-dark-primary">
-              "Disciplina vence talento quando talento nao tem consistencia."
+              "Consistencia, ownership e melhoria continua orientam meu trabalho."
             </b>
           </p>
         </div>
