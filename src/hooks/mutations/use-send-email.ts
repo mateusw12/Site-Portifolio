@@ -1,5 +1,5 @@
 import { useMutation } from '@tanstack/react-query';
-import { sendEmail, TemplateParams } from '../../services/send-email';
+import { sendEmail, TemplateParams } from '../../services/send-email.service';
 
 export function useSendEmail() {
   const mutation = useMutation({
