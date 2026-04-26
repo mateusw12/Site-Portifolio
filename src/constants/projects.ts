@@ -8,9 +8,24 @@ export const PROJECTS: IProject[] = [
     repo: "https://github.com/Julialauries01/escalamateriaiseletricos",
     link: "https://escalamateriaiseletricos.vercel.app/home/",
   },
-    {
+   {
+    title: "Nasa App",
+    description: "Aplicativo que exibe informações sobre a NASA.",
+    stacks: ["Next.js"],
+    repo: "https://github.com/mateusw12/nasa-app",
+    link: "https://nasa-app-psi.vercel.app/",
+  },
+   {
+    title: "Covid Dashboard",
+    description: "Dashboard para monitoramento de casos de COVID-19.",
+    stacks: ["Next.js"],
+    repo: "https://github.com/mateusw12/covid-dashboard",
+    link: "https://covid-dashboard-pink.vercel.app/en-US/dashboard",
+  },
+  {
     title: "Pro Sigma",
-    description: "Sistema completo de análise de dados para metodologia Six Sigma. ",
+    description:
+      "Sistema completo de análise de dados para metodologia Six Sigma. ",
     stacks: ["Next.js", "Python"],
     repo: "https://github.com/mateusw12/pro-sigma",
   },
