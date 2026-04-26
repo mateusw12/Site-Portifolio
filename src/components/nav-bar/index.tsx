@@ -15,9 +15,7 @@ export function Navbar() {
     if (localStorage.getItem("theme")) {
       return localStorage.getItem("theme") as "light" | "dark";
     }
-    return window.matchMedia("(prefers-color-scheme: dark)").matches
-      ? "dark"
-      : "light";
+    return "dark";
   };
 
   const [theme, setTheme] = useState<"light" | "dark">(getPreferredTheme());
